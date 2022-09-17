@@ -9,7 +9,7 @@ private:
     double dineroGeneradoPorELCampo;
     Vehiculo** registroDeVehiculos; //array
 public:
-    InfoDelCampo(int numeroMaximoDeVehiculos = 10, char estadoCampo = 'L', int numeroDeCarrosRegistrados = 0);
+    InfoDelCampo(int numeroMaximoDeVehiculos = 10, char estadoCampo = 'L');
     virtual ~InfoDelCampo();
     //getters
     int getNumeroMaximoDeVehiculos();
