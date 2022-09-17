@@ -24,6 +24,8 @@ public:
     void setEstadoCampo(char);
     void setDineroGeneradoPorELCampo(double);
     void setRegistroDeVehiculos(Vehiculo**);
-    bool ingresarVehiculo(Vehiculo* vehiculo);
+    //metodos
     string toString();
+    bool ingresarVehiculo(Vehiculo* vehiculo);
+    double calcularElDineroGeneradoPorELCampo();
 };
