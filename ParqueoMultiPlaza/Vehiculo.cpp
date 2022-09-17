@@ -89,3 +89,25 @@ string Vehiculo::toString()
 	ss << "Cobro: " << cobro->toString() << endl;
 	return ss.str();
 }
+
+double Vehiculo::calcularTotalAPagar()
+{
+	double montoTotal;
+	int horas;
+	horas = cobro->getHoraDeSalida()->getHora() - cobro->getHoraDeEntrada()->getHora();
+	montoTotal = horas * 800.00;
+	if (tonelaje >= 1.0 && tonelaje <= 1.5) {
+		montoTotal = montoTotal * 1.05;
+	}
+	else if (tonelaje >= 1.6 && tonelaje <= 3.5) {
+		montoTotal = montoTotal * 1.10;
+	}
+	else if (tonelaje >= 3.6 && tonelaje <= 5.0) {
+		montoTotal = montoTotal * 1.15;
+	}
+	else if (tonelaje > 5.0) {
+		montoTotal = montoTotal * 1.20;
+	}
+	cobro->setTotalPagar(montoTotal);
+	return montoTotal;
+}

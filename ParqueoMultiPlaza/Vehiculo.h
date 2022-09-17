@@ -29,4 +29,5 @@ public:
 	void setCobro(Cobro*);
 	//metodos
 	string toString();
+	double calcularTotalAPagar();
 };
