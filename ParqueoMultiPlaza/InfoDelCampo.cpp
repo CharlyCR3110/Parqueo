@@ -95,3 +95,17 @@ double InfoDelCampo::calcularElDineroGeneradoPorELCampo() {
     this->dineroGeneradoPorELCampo = dinero;
     return dinero;
 }
+
+/**
+ * Es una función que devuelve un string que contiene la información de todos los coches que están
+ * registrados en el campo.
+ * 
+ * @return Un objeto stringstream.
+ */
+string InfoDelCampo::mostrarRegistroDeVehiculos() {
+    stringstream s;
+    for (int i = 0; i < this->numeroDeCarrosRegistrados; i++) {
+        s << "Carro numero: " << i << endl << this->registroDeVehiculos[i]->toString() << endl;
+    }
+    return s.str();
+}

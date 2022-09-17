@@ -28,4 +28,5 @@ public:
     string toString();
     bool ingresarVehiculo(Vehiculo* vehiculo);
     double calcularElDineroGeneradoPorELCampo();
+    string mostrarRegistroDeVehiculos();
 };
