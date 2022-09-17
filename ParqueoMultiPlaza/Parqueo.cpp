@@ -80,3 +80,11 @@ string Parqueo::toString()
     s << "Campos en mantenimiento: " << camposMantenimiento << endl;
     return s.str();
 }
+
+string Parqueo::mostrarTodosLosCamposDelParqueo() {
+    stringstream s;
+    for (int i = 0; i < cantidadCampos; i++) {
+        s << "Campo numero: " << i << endl << campos[i]->toString() << endl;
+    }
+    return s.str();
+}

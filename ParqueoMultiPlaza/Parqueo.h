@@ -27,5 +27,6 @@ public:
     void verificarEstadoDeLosCampos(); //verifica el estado de los campos y actualiza los contadores
     bool ingresarCampo(InfoDelCampo* campo);
     string toString();
+    string mostrarTodosLosCamposDelParqueo();
     
 };
