@@ -88,3 +88,13 @@ string Parqueo::mostrarTodosLosCamposDelParqueo() {
     }
     return s.str();
 }
+
+string Parqueo::mostrarCamposOcupados() {
+    stringstream s;
+    for (int i = 0; i < cantidadCampos; i++) {
+        if (campos[i]->getEstadoCampo() == 'O') {
+            s << campos[i]->toString() << endl;
+        }
+    }
+    return s.str();
+}

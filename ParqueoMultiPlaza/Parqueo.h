@@ -28,5 +28,6 @@ public:
     bool ingresarCampo(InfoDelCampo* campo);
     string toString();
     string mostrarTodosLosCamposDelParqueo();
+    string mostrarCamposOcupados();
     
 };
