@@ -62,7 +62,17 @@ void InfoDelCampo::setRegistroDeVehiculos(Vehiculo** registroDeVehiculos)
     this->registroDeVehiculos = registroDeVehiculos;
 }
 
-string InfoDelCampo::toString()
+string InfoDelCampo::toString() {
+    stringstream s;
+    s << "Estado del campo: " << this->estadoCampo << endl;
+    if (estadoCampo == 'O') {
+        s << "Placa del vehiculo: " << this->registroDeVehiculos[numeroDeCarrosRegistrados - 1]->getPlaca() << endl;
+    } else {
+        s << "No hay ningun vehiculo registrado actualmente" << endl;
+    }
+}
+
+string InfoDelCampo::toStringCompleto() //tiene mas informacion
 {
     stringstream s;
     s << "Numero maximo de vehiculos: " << this->numeroMaximoDeVehiculos << endl;

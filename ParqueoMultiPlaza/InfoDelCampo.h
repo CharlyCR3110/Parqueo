@@ -26,6 +26,7 @@ public:
     void setRegistroDeVehiculos(Vehiculo**);
     //metodos
     string toString();
+    string toStringCompleto(); //tiene mas informacion
     bool ingresarVehiculo(Vehiculo* vehiculo);
     double calcularElDineroGeneradoPorELCampo();
     string mostrarRegistroDeVehiculos();
