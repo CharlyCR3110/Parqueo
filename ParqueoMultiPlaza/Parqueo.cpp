@@ -1,7 +1,9 @@
 #include "Parqueo.h"
 
-Parqueo::Parqueo(int numeroCampos)
+Parqueo::Parqueo(string nombre, string telefono, int numeroCampos)
 {
+    this->nombre = nombre;
+    this->telefono = telefono;
     this->numeroCampos = numeroCampos;
     this->cantidadCampos = 0;
     this->camposLibres = 0;
@@ -16,6 +18,16 @@ Parqueo::~Parqueo()
         delete campos[i];
     }
     delete[] campos;
+}
+
+string Parqueo::getNombre()
+{
+    return nombre;
+}
+
+string Parqueo::getTelefono()
+{
+    return telefono;
 }
 
 int Parqueo::getCantidadCampos()

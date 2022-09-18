@@ -4,15 +4,19 @@ class Parqueo {
 private:
     InfoDelCampo** campos;
 	//tamano y cantidad
+    string nombre;
+    string telefono;
 	int cantidadCampos;  //cantidad
     int numeroCampos; //tamano maxima
     int camposLibres;
     int camposOcupados;
     int camposMantenimiento;
 public:
-    Parqueo(int numeroCampos = 0);
+    Parqueo(string nombre = "", string telefono = "", int numeroCampos = 0);
     virtual ~Parqueo();
 	//getters
+    string getNombre();
+    string getTelefono();
 	int getCantidadCampos();
     int getNumeroCampos();
     int getCamposLibres();
