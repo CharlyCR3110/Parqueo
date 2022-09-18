@@ -24,7 +24,7 @@ int main() {
 	string nombre, telefono;
 	Parqueo* parqueo;
 	//Para escoger una opcion del menu
-	int opcion;
+	int opcionMenu;
 
 	cout << "Ingrese el nombre del parqueo: ";
 	getline(cin, nombre);
@@ -34,6 +34,20 @@ int main() {
 	cin >> numeroCampos;
 
 	parqueo = new Parqueo(nombre, telefono, numeroCampos);
+
+	do {
+		cout << menu();
+		cin >> opcionMenu;
+		//por si alguien ingresa un caracter no valido
+        if (!cin.good()) {
+            cin.clear();
+            cin.ignore(numeric_limits<int>::max(), '\n');
+        }
+		system("cls");
+		switch (opcionMenu) {
+			
+		}
+	} while (opcionMenu != 19);
 
 	return 0;
 }
