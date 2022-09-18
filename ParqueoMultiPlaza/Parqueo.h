@@ -22,6 +22,8 @@ public:
     int getCamposLibres();
     int getCamposOcupados();
     int getCamposEnMantenimiento();
+    //retornar el vector de campos
+    InfoDelCampo** getCampos();
     //setters
     //void setCantidadCampos(int cantidadCampos);
     //void setNumeroCampos(int numeroCampos);

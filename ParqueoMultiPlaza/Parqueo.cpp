@@ -60,6 +60,11 @@ int Parqueo::getCamposEnMantenimiento()
 	return camposMantenimiento;
 }
 
+InfoDelCampo** Parqueo::getCampos()
+{
+    return campos;
+}
+
 void Parqueo::verificarEstadoDeLosCampos()
 {
     for (int i = 0; i < cantidadCampos; i++) {
