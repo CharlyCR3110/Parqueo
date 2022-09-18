@@ -3,10 +3,10 @@
 class Parqueo {
 private:
     InfoDelCampo** campos;
-	//tamano y cantidad
+    //tamano y cantidad
     string nombre;
     string telefono;
-	int cantidadCampos;  //cantidad
+    int cantidadCampos;  //cantidad
     int numeroCampos; //tamano maxima
     int camposLibres;
     int camposOcupados;
@@ -14,10 +14,10 @@ private:
 public:
     Parqueo(string nombre = "", string telefono = "", int numeroCampos = 0);
     virtual ~Parqueo();
-	//getters
+    //getters
     string getNombre();
     string getTelefono();
-	int getCantidadCampos();
+    int getCantidadCampos();
     int getNumeroCampos();
     int getCamposLibres();
     int getCamposOcupados();
@@ -30,10 +30,11 @@ public:
     //void setCamposLibres(int camposLibres);
     //void setCamposOcupados(int camposOcupados);
     //void setCamposMantenimiento(int camposMantenimiento);
+    void setEstadoDeUnCampo(int posicion, char estado);
     void verificarEstadoDeLosCampos(); //verifica el estado de los campos y actualiza los contadores
     bool ingresarCampo(InfoDelCampo* campo);
     string toString();
     string mostrarTodosLosCamposDelParqueo();
     string mostrarCamposOcupados();
-    
+    string mostrarCamposDisponibles();
 };

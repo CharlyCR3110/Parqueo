@@ -6,15 +6,18 @@ Parqueo::Parqueo(string nombre, string telefono, int numeroCampos)
     this->telefono = telefono;
     this->numeroCampos = numeroCampos;
     this->cantidadCampos = 0;
-    this->camposLibres = 0;
+    this->camposLibres = numeroCampos;
     this->camposOcupados = 0;
     this->camposMantenimiento = 0;
     this->campos = new InfoDelCampo*[numeroCampos];
-    //todos campos deben de tener 10 espacios
     for (int i = 0; i < numeroCampos; i++) {
-        this->campos[i] = new InfoDelCampo(10, 'L');
-        camposLibres++;
+        this->campos[i] = NULL;
     }
+    //todos los campos deben de tener 10 espacios y estar libres
+    for (int i = 0; i < numeroCampos; i++) {
+        this->ingresarCampo(new InfoDelCampo(10, 'L'));
+    }
+
 }
 
 Parqueo::~Parqueo()
@@ -65,6 +68,23 @@ InfoDelCampo** Parqueo::getCampos()
     return campos;
 }
 
+void Parqueo::setEstadoDeUnCampo(int posicion, char estado) {
+    campos[posicion]->setEstadoCampo(estado);
+
+    if (estado == 'L') {
+        camposLibres++;
+        camposOcupados--;
+    }
+    else if (estado == 'O') {
+        camposLibres--;
+        camposOcupados++;
+    }
+    else if (estado == 'M') {
+        camposLibres--;
+        camposMantenimiento++;
+    }
+}
+
 void Parqueo::verificarEstadoDeLosCampos()
 {
     for (int i = 0; i < cantidadCampos; i++) {
@@ -95,8 +115,7 @@ bool Parqueo::ingresarCampo(InfoDelCampo* campo)
 string Parqueo::toString()
 {
     stringstream s;
-    s << "Cantidad de campos utilizados: " << cantidadCampos << endl;
-    s << "Numero maximo de campos: " << numeroCampos << endl;
+    s << "Numero campos: " << numeroCampos << endl;
     s << "Campos libres: " << camposLibres << endl;
     s << "Campos ocupados: " << camposOcupados << endl;
     s << "Campos en mantenimiento: " << camposMantenimiento << endl;
@@ -106,7 +125,7 @@ string Parqueo::toString()
 string Parqueo::mostrarTodosLosCamposDelParqueo() {
     stringstream s;
     for (int i = 0; i < cantidadCampos; i++) {
-        s << "Campo numero: " << i << endl << campos[i]->toString() << endl;
+        s << campos[i]->toString() << endl;
     }
     return s.str();
 }
@@ -116,6 +135,16 @@ string Parqueo::mostrarCamposOcupados() {
     for (int i = 0; i < cantidadCampos; i++) {
         if (campos[i]->getEstadoCampo() == 'O') {
             s << campos[i]->toString() << endl;
+        }
+    }
+    return s.str();
+}
+
+string Parqueo::mostrarCamposDisponibles() {
+    stringstream s;
+    for (int i = 0; i < cantidadCampos; i++) {
+        if (campos[i]->getEstadoCampo() == 'L') {
+            s << "Numero del campo " << i << endl << campos[i]->toString() << endl;
         }
     }
     return s.str();
