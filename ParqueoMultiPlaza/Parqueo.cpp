@@ -10,6 +10,11 @@ Parqueo::Parqueo(string nombre, string telefono, int numeroCampos)
     this->camposOcupados = 0;
     this->camposMantenimiento = 0;
     this->campos = new InfoDelCampo*[numeroCampos];
+    //todos campos deben de tener 10 espacios
+    for (int i = 0; i < numeroCampos; i++) {
+        this->campos[i] = new InfoDelCampo(10, 'L');
+        camposLibres++;
+    }
 }
 
 Parqueo::~Parqueo()
