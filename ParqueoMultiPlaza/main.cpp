@@ -26,5 +26,14 @@ int main() {
 	//Para escoger una opcion del menu
 	int opcion;
 
+	cout << "Ingrese el nombre del parqueo: ";
+	getline(cin, nombre);
+	cout << "Ingrese el telefono del parqueo: ";
+	getline(cin, telefono);
+	cout << "Ingrese el numero de campos del parqueo: ";
+	cin >> numeroCampos;
+
+	parqueo = new Parqueo(nombre, telefono, numeroCampos);
+
 	return 0;
 }
