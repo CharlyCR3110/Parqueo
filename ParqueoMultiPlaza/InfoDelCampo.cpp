@@ -70,6 +70,7 @@ string InfoDelCampo::toString() {
     } else {
         s << "No hay ningun vehiculo registrado actualmente" << endl;
     }
+    return s.str();
 }
 
 string InfoDelCampo::toStringCompleto() //tiene mas informacion
