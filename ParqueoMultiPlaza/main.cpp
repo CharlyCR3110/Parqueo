@@ -69,6 +69,10 @@ int main() {
 			case 2:
 				cout << parqueo->mostrarCamposOcupados();
 				break;
+			//3 - Ver solo los campos que están en MANTENIMIENTO. (solo lugar y estado)
+			case 3:
+				cout << parqueo->mostrarCamposEnMantenimiento();
+				break;
 		}
 		system("PAUSE");
 	} while (opcionMenu != 19);
@@ -91,6 +95,5 @@ int main() {
 	// cout << endl << endl << "Parqueo 2" << endl << endl;
 	// cout << parqueo2->mostrarCamposDisponibles();
 
-	system("pause");
 	return 0;
 }
