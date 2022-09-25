@@ -65,6 +65,10 @@ int main() {
 			case 1:
 				cout << parqueo->mostrarTodosLosCamposDelParqueo();
 				break;
+			//2 - Ver solo los campos que están OCUPADOS. (solo lugar, estado y placa)
+			case 2:
+				cout << parqueo->mostrarCamposOcupados();
+				break;
 		}
 		system("PAUSE");
 	} while (opcionMenu != 19);
