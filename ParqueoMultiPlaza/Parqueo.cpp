@@ -134,7 +134,7 @@ string Parqueo::mostrarCamposOcupados() {
     stringstream s;
     for (int i = 0; i < cantidadCampos; i++) {
         if (campos[i]->getEstadoCampo() == 'O') {
-            s << campos[i]->toString() << endl;
+            s << "Campo numero: " << i << endl << campos[i]->toString() << endl;
         }
     }
     return s.str();
@@ -144,7 +144,7 @@ string Parqueo::mostrarCamposDisponibles() {
     stringstream s;
     for (int i = 0; i < cantidadCampos; i++) {
         if (campos[i]->getEstadoCampo() == 'L') {
-            s << "Numero del campo " << i << endl << campos[i]->toString() << endl;
+            s << "Campo numero: " << i << endl << campos[i]->toString() << endl;
         }
     }
     return s.str();
