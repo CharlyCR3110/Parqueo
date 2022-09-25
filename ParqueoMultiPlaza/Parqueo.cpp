@@ -159,3 +159,31 @@ string Parqueo::mostrarCamposEnMantenimiento() {
     }
     return s.str();
 }
+
+bool Parqueo::ingresarUnVehiculoAlParqueo(int posicion, Vehiculo* vehiculo)
+{
+    //validar que la posicion exista
+    if (posicion < cantidadCampos && posicion >= 0) {
+        if (campos[posicion]->ingresarVehiculo(vehiculo)) {
+            camposLibres--;
+            camposOcupados++;
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        return false;
+    }
+
+
+    // if (campos[posicion]->getEstadoCampo() == 'L' && campos[posicion]->getNumeroDeCarrosRegistrados() < 10) {
+    //     campos[posicion]->setVehiculo(vehiculo);
+    //     campos[posicion]->setEstadoCampo('O');
+    //     camposLibres--;
+    //     camposOcupados++;
+    //     return true;
+    // }
+    // else {
+    //     return false;
+    // }
+}
