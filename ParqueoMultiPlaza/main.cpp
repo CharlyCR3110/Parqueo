@@ -25,6 +25,8 @@ int main() {
 	Parqueo* parqueo;
 	//Para escoger una opcion del menu
 	int opcionMenu;
+	//Para validar que este hecho
+	bool hecho;
 
 	cout << "Ingrese el nombre del parqueo: ";
 	getline(cin, nombreParqueo);
@@ -46,6 +48,8 @@ int main() {
 		cout << "Numero del campo " << numeroDelCampo << endl;
 		parqueo->setEstadoDeUnCampo(numeroDelCampo, 'M');
 	}
+	//to-do
+	//verificar que se haya escogido un campo elegible
 
 	system("cls");
 
@@ -73,6 +77,80 @@ int main() {
 			case 3:
 				cout << parqueo->mostrarCamposEnMantenimiento();
 				break;
+			// 4 - Ingresar un vehículo al parqueo. Solicitar posición o lugar. 
+			case 4:
+				//datos del chofer
+				//se pide la cedula del chofer
+				cout << "Ingrese la cedula del chofer: ";
+				cin >> cedula;
+				//se pide el nombre del chofer
+				cout << "Ingrese el nombre del chofer: ";
+				cin >> nombre;
+				//se crea el objeto chofer
+				chofer = new Chofer(cedula, nombre);
+				//datos del vehiculo
+				//se pide la marca del vehiculo
+				cout << "Ingrese la marca del vehiculo: ";
+				cin >> marca;
+				//se pide la placa del vehiculo
+				cout << "Ingrese la placa del vehiculo: ";
+				cin >> placa;
+				//se pide el tonelaje del vehiculo
+				cout << "Ingrese el tonelaje del vehiculo: ";
+				cin >> tonelaje;
+				//se pide el color del vehiculo
+				cout << "Ingrese el color del vehiculo: ";
+				cin >> color;
+				//datos del cobro del vehiculo
+				//datos de la hora de entrada
+				cout << "A continuacion ingrese los datos para posteriormente realizar el cobro" << endl << endl;
+				cout << "A continuacion se le solicitara la hora de entrada" << endl;
+				cout << "Hora: ";
+				cin >> hora;
+				cout << "Minutos: ";
+				cin >> minutos;
+				cout << "Segundos: ";
+				cin >> segundos;
+				//se crea el objeto hora de entrada
+				horaDeEntrada = new Hora(hora, minutos, segundos);
+				//datos de la hora de salida
+				cout << "A continuacion se le solicitara la hora de salida" << endl;
+				cout << "Hora: ";
+				cin >> hora;
+				cout << "Minutos: ";
+				cin >> minutos;
+				cout << "Segundos: ";
+				cin >> segundos;
+				//se crea el objeto hora de salida
+				horaDeSalida = new Hora(hora, minutos, segundos);
+				//se crea el objeto cobro
+				cobro = new Cobro(horaDeEntrada, horaDeSalida);
+				//se crea el objeto vehiculo
+				vehiculo = new Vehiculo(marca, placa, tonelaje, color, chofer, cobro);
+
+				//se ingresa el vehiculo en el campo
+				do {
+					//mostrar los campos disponibles
+					cout << parqueo->mostrarCamposDisponibles();
+					//se pide el numero del campo donde se desea ingresar el vehiculo
+					cout << "Ingrese el numero del campo donde desea ingresar el vehiculo: ";
+					cin >> numeroDelCampo;
+					//por si alguien ingresa un caracter no valido
+					if (!cin.good()) {
+						cin.clear();
+						cin.ignore(numeric_limits<int>::max(), '\n');
+					}
+					//en el if () se verifica y se ingresa el vehiculo en el campo
+					if (parqueo->ingresarUnVehiculoAlParqueo(numeroDelCampo, vehiculo)) {
+						cout << "Vehiculo ingresado correctamente" << endl;
+						hecho = true;
+					} else {
+						cout << "No se puede ingresar el vehiculo en ese campo" << endl;
+						hecho = false;
+					}
+				} while (hecho == false);
+				break;
+
 		}
 		system("PAUSE");
 	} while (opcionMenu != 19);
