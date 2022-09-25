@@ -125,7 +125,7 @@ string Parqueo::toString()
 string Parqueo::mostrarTodosLosCamposDelParqueo() {
     stringstream s;
     for (int i = 0; i < cantidadCampos; i++) {
-        s << campos[i]->toString() << endl;
+        s << "Campo numero: " << i << endl << campos[i]->toString() << endl;
     }
     return s.str();
 }
