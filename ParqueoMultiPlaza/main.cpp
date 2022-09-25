@@ -39,8 +39,9 @@ int main() {
 	for (int i = 0; i < numeroDeCamposEnManteniemiento; i++) {
 		system("cls");
 		//se muestran los campos libres (unicamente los libres, no los ocupados, porque los ocupados no se pueden poner en mantenimiento)
+		cout << "Campos elegibles: " << endl;
 		cout << parqueo->mostrarCamposDisponibles();
-		cout << "Ingrese el numero del campo en mantenimiento: ";
+		cout << "Ingrese el numero del campo que desear poner en mantenimiento: ";
 		cin >> numeroDelCampo;
 		cout << "Numero del campo " << numeroDelCampo << endl;
 		parqueo->setEstadoDeUnCampo(numeroDelCampo, 'M');
@@ -60,8 +61,12 @@ int main() {
        }
 		system("cls");
 		switch (opcionMenu) {
-			
+			//1 - Ver TODOS los campos del parqueo, (solo lugar, estado y placa)
+			case 1:
+				cout << parqueo->mostrarTodosLosCamposDelParqueo();
+				break;
 		}
+		system("PAUSE");
 	} while (opcionMenu != 19);
 
 	//objetos de prueba
