@@ -149,3 +149,13 @@ string Parqueo::mostrarCamposDisponibles() {
     }
     return s.str();
 }
+
+string Parqueo::mostrarCamposEnMantenimiento() {
+    stringstream s;
+    for (int i = 0; i < cantidadCampos; i++) {
+        if (campos[i]->getEstadoCampo() == 'M') {
+            s << "Campo numero: " << i << endl << campos[i]->toString() << endl;
+        }
+    }
+    return s.str();
+}

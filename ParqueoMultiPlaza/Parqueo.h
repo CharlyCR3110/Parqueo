@@ -37,4 +37,5 @@ public:
     string mostrarTodosLosCamposDelParqueo();
     string mostrarCamposOcupados();
     string mostrarCamposDisponibles();
+    string mostrarCamposEnMantenimiento();
 };
