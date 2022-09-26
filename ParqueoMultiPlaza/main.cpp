@@ -1,5 +1,7 @@
 #include "Parqueo.h"
 #include "Menu.h"
+#include "ValidadorDeDatos.h"
+#include "PausaYContinuar.h"
 using namespace std;
 
 int main() {
@@ -80,15 +82,19 @@ int main() {
 			// 4 - Ingresar un vehículo al parqueo. Solicitar posición o lugar. 
 			case 4:
 				//datos del chofer
+				cout << "A continuacion se le solictaran los datos del chofer" << endl;
 				//se pide la cedula del chofer
 				cout << "Ingrese la cedula del chofer: ";
 				cin >> cedula;
 				//se pide el nombre del chofer
 				cout << "Ingrese el nombre del chofer: ";
 				cin >> nombre;
+				//pausa para que el usuario pueda leer lo que se le esta pidiendo
+				pausaYContinuar();
 				//se crea el objeto chofer
 				chofer = new Chofer(cedula, nombre);
 				//datos del vehiculo
+				cout << "A continuacion se le solictaran los datos del vehiculo" << endl;
 				//se pide la marca del vehiculo
 				cout << "Ingrese la marca del vehiculo: ";
 				cin >> marca;
@@ -101,26 +107,51 @@ int main() {
 				//se pide el color del vehiculo
 				cout << "Ingrese el color del vehiculo: ";
 				cin >> color;
+				//pausa para que el usuario pueda leer lo que se le esta pidiendo
+				pausaYContinuar();
 				//datos del cobro del vehiculo
 				//datos de la hora de entrada
 				cout << "A continuacion ingrese los datos para posteriormente realizar el cobro" << endl << endl;
-				cout << "A continuacion se le solicitara la hora de entrada" << endl;
-				cout << "Hora: ";
-				cin >> hora;
-				cout << "Minutos: ";
-				cin >> minutos;
-				cout << "Segundos: ";
-				cin >> segundos;
+				cout << "Se utiliza el formato de 24 horas" << endl;
+				cout << "Ejemplo: 16:30:00" << endl;
+				pausaYContinuar();
+				do {
+					cout << "Digite la hora de entrada" << endl;
+					cout << "Hora: ";
+					cin >> hora;
+					cout << "Minutos: ";
+					cin >> minutos;
+					cout << "Segundos: ";
+					cin >> segundos;
+					//se verifica que la hora ingresada sea valida
+					if (!validarHora(hora, minutos, segundos)) {
+						cout << "La hora ingresada no es valida" << endl;
+						pausaYContinuar();
+					}
+				} while (validarHora(hora, minutos, segundos) == false);
+				//se muestra la hora en formato HH:MM:SS
+				cout << "Hora de entrada: " << hora << ":" << minutos << ":" << segundos << endl;
+				pausaYContinuar();
 				//se crea el objeto hora de entrada
 				horaDeEntrada = new Hora(hora, minutos, segundos);
 				//datos de la hora de salida
-				cout << "A continuacion se le solicitara la hora de salida" << endl;
-				cout << "Hora: ";
-				cin >> hora;
-				cout << "Minutos: ";
-				cin >> minutos;
-				cout << "Segundos: ";
-				cin >> segundos;
+				do {
+					cout << "Digite la hora de salida" << endl;
+					cout << "Hora: ";
+					cin >> hora;
+					cout << "Minutos: ";
+					cin >> minutos;
+					cout << "Segundos: ";
+					cin >> segundos;
+					//se verifica que la hora ingresada sea valida
+					if (!validarHora(hora, minutos, segundos)) {
+						cout << "La hora ingresada no es valida" << endl;
+						pausaYContinuar();
+					}
+				} while (validarHora(hora, minutos, segundos) == false);
+				//se muestra la hora en formato HH:MM:SS
+				cout << "Hora de salida: " << hora << ":" << minutos << ":" << segundos << endl;
+				pausaYContinuar();
 				//se crea el objeto hora de salida
 				horaDeSalida = new Hora(hora, minutos, segundos);
 				//se crea el objeto cobro
@@ -152,7 +183,7 @@ int main() {
 				break;
 
 		}
-		system("PAUSE");
+		system("pause");
 	} while (opcionMenu != 19);
 
 	//objetos de prueba
