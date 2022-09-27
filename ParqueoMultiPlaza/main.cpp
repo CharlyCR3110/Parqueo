@@ -304,6 +304,32 @@ int main() {
 			case 15:
 				cout << "El porcentaje de ocupacion que tiene el parqueo es: " << parqueo->porcentajeDeOcupacionDelParqueo() << "%" << endl;
 				break;
+			// 16 - Mostrar la información de los vehículos que han estado en un determinado campo.
+			case 16:
+				do {
+					cout << "Ingrese el numero del campo: ";
+					cin >> numeroDelCampo;
+					//por si alguien ingresa un caracter no valido
+					if (!cin.good()) {
+						cin.clear();
+						cin.ignore(numeric_limits<int>::max(), '\n');
+					}
+					//se verifica que el campo ingresado sea valido
+					if (parqueo->verificarQueElCampoExista(numeroDelCampo)) {
+						hecho = true;
+					} else {
+						cout << "El campo numero " << numeroDelCampo << " no existe" << endl;
+						pausaYContinuar();
+						hecho = false;
+					}
+					
+					if (hecho == false) {
+						cout << "Intente de nuevo" << endl;
+						pausaYContinuar();
+					}
+				} while (hecho == false);
+				cout << parqueo->mostrarInformacionDeLosVehiculosQueHanEstadoEnUnDeterminadoCampo(numeroDelCampo);
+				break;
 		}
 		std::system("pause");
 	} while (opcionMenu != 19);
