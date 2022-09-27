@@ -256,3 +256,12 @@ int Parqueo::cantidadDeVehiculosQueHanIngresadoEnElDia()
     }
     return cantidad;
 }
+
+double Parqueo::dineroQueHaIngresadoAlParqueoEsteDia()
+{
+    double total = 0;
+    for (int i = 0; i < cantidadCampos; i++) {
+        total += campos[i]->calcularElDineroGeneradoPorELCampo();
+    }
+    return total;
+}

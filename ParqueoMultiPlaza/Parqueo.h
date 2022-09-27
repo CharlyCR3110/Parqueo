@@ -46,4 +46,5 @@ public:
     bool verificarQueEsteOcupado(int posicion);
     int getCantidadDeVehiculosEnElParqueo();
     int cantidadDeVehiculosQueHanIngresadoEnElDia();
+    double dineroQueHaIngresadoAlParqueoEsteDia();
 };
