@@ -31,4 +31,5 @@ public:
     bool ingresarVehiculo(Vehiculo* vehiculo);
     double calcularElDineroGeneradoPorELCampo();
     string mostrarRegistroDeVehiculos();
+    bool retirarVehiculo(); //realmente no se retira, simplemente se el campo se pone libre
 };

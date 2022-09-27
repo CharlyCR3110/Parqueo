@@ -133,3 +133,13 @@ Vehiculo* InfoDelCampo::getVehiculo()
     }
     return NULL;
 }
+
+bool InfoDelCampo::retirarVehiculo() {
+    if (this->numeroDeCarrosRegistrados > 0) {
+        if (this->estadoCampo == 'O') {
+            this->estadoCampo = 'L';
+            return true;
+        }
+    }
+    return false;
+}
