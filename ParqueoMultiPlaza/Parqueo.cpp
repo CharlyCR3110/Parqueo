@@ -247,3 +247,12 @@ int Parqueo::getCantidadDeVehiculosEnElParqueo()
 {
     return camposOcupados;
 }
+
+int Parqueo::cantidadDeVehiculosQueHanIngresadoEnElDia() 
+{
+    int cantidad = 0;
+    for (int i = 0; i < cantidadCampos; i++) {
+        cantidad += campos[i]->getNumeroDeCarrosRegistrados();
+    }
+    return cantidad;
+}

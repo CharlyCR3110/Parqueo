@@ -45,4 +45,5 @@ public:
     bool verificarQueElCampoExista(int posicion);
     bool verificarQueEsteOcupado(int posicion);
     int getCantidadDeVehiculosEnElParqueo();
+    int cantidadDeVehiculosQueHanIngresadoEnElDia();
 };
