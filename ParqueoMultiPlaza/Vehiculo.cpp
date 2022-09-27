@@ -111,3 +111,8 @@ double Vehiculo::calcularTotalAPagar()
 	cobro->setTotalPagar(montoTotal);
 	return montoTotal;
 }
+
+void Vehiculo::actualizarHoraDeSalida(Hora* horaDeSalida)
+{
+	cobro->setHoraDeSalida(horaDeSalida);
+}
