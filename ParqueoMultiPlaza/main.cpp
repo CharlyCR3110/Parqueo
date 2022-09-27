@@ -261,6 +261,11 @@ int main() {
 			case 10:
 				cout << "La cantidad de campos en mantenimiento en el parqueo es: " << parqueo->getCamposEnMantenimiento() << endl;
 				break;
+				// 11 - Saber la cantidad de vehículos que han ingresado en el día.
+			case 11:
+				cout << "La cantidad de vehiculos que han ingresado en el dia es: " << parqueo->cantidadDeVehiculosQueHanIngresadoEnElDia() << endl;
+				break;
+			
 		}
 		std::system("pause");
 	} while (opcionMenu != 19);
