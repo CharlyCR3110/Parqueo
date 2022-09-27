@@ -44,4 +44,5 @@ public:
     string ticketDeSalida(int posicion);
     bool verificarQueElCampoExista(int posicion);
     bool verificarQueEsteOcupado(int posicion);
+    int getCantidadDeVehiculosEnElParqueo();
 };

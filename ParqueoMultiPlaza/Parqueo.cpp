@@ -242,3 +242,8 @@ bool Parqueo::verificarQueEsteOcupado(int posicion)
         return false;
     }
 }
+
+int Parqueo::getCantidadDeVehiculosEnElParqueo()
+{
+    return camposOcupados;
+}
