@@ -51,4 +51,5 @@ public:
     double tonelajeDeLosVehiculosQueHacenMasUsoDelParqueo();
     double porcentajeDeOcupacionDelParqueo();
     string mostrarInformacionDeLosVehiculosQueHanEstadoEnUnDeterminadoCampo(int posicion);
+    string mostrarInformacionDeTodosLosVehiculosQueEstanOHanEstadoEnElParqueo();
 };

@@ -308,3 +308,22 @@ string Parqueo::mostrarInformacionDeLosVehiculosQueHanEstadoEnUnDeterminadoCampo
     s << campos[posicion]->mostrarRegistroDeVehiculos();
     return s.str();
 }
+
+string Parqueo::mostrarInformacionDeTodosLosVehiculosQueEstanOHanEstadoEnElParqueo() 
+{
+    stringstream s;
+    s << "Registro de todos los vehiculos que han estado en el parqueo" << endl;
+    s << "------------------------------------------------------------" << endl;
+    for (int i = 0; i < cantidadCampos; i++) {
+        s << "Registro de vehiculos del campo numero " << i << endl;
+        if (campos[i]->getNumeroDeCarrosRegistrados() > 0) {
+            s << campos[i]->mostrarRegistroDeVehiculos();
+        }
+        else {
+            s << "No se han registrado vehiculos en este campo" << endl;
+        }
+        //podria llamar a la funcion "mostrarInformacionDeLosVehiculosQueHanEstadoEnUnDeterminadoCampo"
+        //  y pasarle i como parametro pero no se si es buena practica
+    }
+    return s.str();
+}
