@@ -41,7 +41,7 @@ int main() {
 	parqueo = new Parqueo(nombreParqueo, telefonoParqueo, numeroCampos);
 	//se establecen los campos en mantenimiento`
 	for (int i = 0; i < numeroDeCamposEnManteniemiento; i++) {
-		system("cls");
+		std::system("cls");
 		//se muestran los campos libres (unicamente los libres, no los ocupados, porque los ocupados no se pueden poner en mantenimiento)
 		cout << "Campos elegibles: " << endl;
 		cout << parqueo->mostrarCamposDisponibles();
@@ -53,7 +53,7 @@ int main() {
 	//to-do
 	//verificar que se haya escogido un campo elegible
 
-	system("cls");
+	std::system("cls");
 
 	cout << parqueo->mostrarCamposDisponibles();
 
@@ -65,7 +65,7 @@ int main() {
            cin.clear();
            cin.ignore(numeric_limits<int>::max(), '\n');
        }
-		system("cls");
+		std::system("cls");
 		switch (opcionMenu) {
 			//1 - Ver TODOS los campos del parqueo, (solo lugar, estado y placa)
 			case 1:
@@ -153,36 +153,32 @@ int main() {
 					}
 					//en el if () se verifica y se ingresa el vehiculo en el campo
 					if (parqueo->ingresarUnVehiculoAlParqueo(numeroDelCampo, vehiculo)) {
-						cout << "Vehiculo ingresado correctamente" << endl;
+						//se crea un ticket de entrada
+						//opcion con una clase ticket de entrada
+						// ticketDeEntrada = new TicketDeEntrada(vehiculo, numeroDelCampo);
+						//se muestra el ticket de entrada
+						// cout << ticketDeEntrada->toString();
+						//opcion simulando un ticket a punta de couts
+						cout << "Ticket de entrada" << endl;
+						cout << "Campo: " << numeroDelCampo << endl;
+						cout << "Datos del vehiculo: " << endl;
+						cout << "Marca: " << vehiculo->getMarca() << endl;
+						cout << "Placa: " << vehiculo->getPlaca() << endl;
+						cout << "Datos del chofer: " << endl;
+						cout << vehiculo->getChofer()->toString();
+						cout << "Hora de entrada: " << hora << ":" << minutos << ":" << segundos << endl;
 						hecho = true;
 					} else {
-						cout << "No se puede ingresar el vehiculo en ese campo" << endl;
+						cout << "No se puede ingresar un vehiculo en ese campo" << endl;
+						pausaYContinuar();
+						cout << "Por favor ingrese un campo valido" << endl;
 						hecho = false;
 					}
 				} while (hecho == false);
 				break;
 
 		}
-		system("pause");
+		std::system("pause");
 	} while (opcionMenu != 19);
-
-	//objetos de prueba
-
-	// InfoDelCampo* campo1 = new InfoDelCampo(10, 'L');
-	// InfoDelCampo* campo2 = new InfoDelCampo(10, 'L');
-	// InfoDelCampo* campo3 = new InfoDelCampo(10, 'O');
-	// InfoDelCampo* campo4 = new InfoDelCampo(10, 'M');
-
-	// Parqueo* parqueo2 = new Parqueo("Parqueo 2", "1234567", 10, 4);
-
-	// parqueo2->ingresarCampo(campo1);
-	// parqueo2->ingresarCampo(campo2);
-	// parqueo2->ingresarCampo(campo3);
-	// parqueo2->ingresarCampo(campo4);
-	
-
-	// cout << endl << endl << "Parqueo 2" << endl << endl;
-	// cout << parqueo2->mostrarCamposDisponibles();
-
 	return 0;
 }
