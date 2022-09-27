@@ -174,16 +174,16 @@ bool Parqueo::ingresarUnVehiculoAlParqueo(int posicion, Vehiculo* vehiculo)
     } else {
         return false;
     }
+}
 
-
-    // if (campos[posicion]->getEstadoCampo() == 'L' && campos[posicion]->getNumeroDeCarrosRegistrados() < 10) {
-    //     campos[posicion]->setVehiculo(vehiculo);
-    //     campos[posicion]->setEstadoCampo('O');
-    //     camposLibres--;
-    //     camposOcupados++;
-    //     return true;
-    // }
-    // else {
-    //     return false;
-    // }
+Vehiculo* Parqueo::buscarVehiculo(string placa)
+{
+    for (int i = 0; i < cantidadCampos; i++) {
+        if (campos[i]->getEstadoCampo() == 'O') {
+            if (campos[i]->getVehiculo()->getPlaca() == placa) {
+                return campos[i]->getVehiculo();
+            }
+        }
+    }
+    return NULL;
 }
