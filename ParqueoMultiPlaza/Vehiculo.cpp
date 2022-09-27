@@ -90,11 +90,21 @@ string Vehiculo::toString()
 	return ss.str();
 }
 
+int Vehiculo::horasQueElVehiculoEstuvoEnElParqueo() 
+{
+	int horas = 0;
+	horas = cobro->getHoraDeSalida()->getHora() - cobro->getHoraDeEntrada()->getHora();
+	if (cobro->getHoraDeSalida()->getMinutos() < cobro->getHoraDeEntrada()->getMinutos()) {
+		horas--;
+	}
+	return horas;
+}
+
 double Vehiculo::calcularTotalAPagar()
 {
 	double montoTotal;
-	int horas;
-	horas = cobro->getHoraDeSalida()->getHora() - cobro->getHoraDeEntrada()->getHora();
+	int horas = horasQueElVehiculoEstuvoEnElParqueo();
+
 	montoTotal = horas * 800.00;
 	if (tonelaje >= 1.0 && tonelaje <= 1.5) {
 		montoTotal = montoTotal * 1.05;

@@ -32,4 +32,5 @@ public:
 	double calcularTotalAPagar();
 	void actualizarHoraDeSalida(Hora*);
 	string mostrarCobro();
+	int horasQueElVehiculoEstuvoEnElParqueo();
 };
