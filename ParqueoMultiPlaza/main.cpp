@@ -269,7 +269,33 @@ int main() {
 			case 12:
 				cout << "La cantidad de dinero que ha ingresado al parqueo este dia es: " << parqueo->dineroQueHaIngresadoAlParqueoEsteDia() << endl;
 				break;
-				// 13 - Saber la cantidad de vehículos que han salido en el día.
+			// 13 - Saber la cantidad de dinero que ha ingresado, por un solo campo. 
+			case 13:
+				//se pide el campo donde esta  ubicado el vehiculo
+				do {
+					cout << "Ingrese el numero del campo donde se encuentra el vehiculo: ";
+					cin >> numeroDelCampo;
+					//por si alguien ingresa un caracter no valido
+					if (!cin.good()) {
+						cin.clear();
+						cin.ignore(numeric_limits<int>::max(), '\n');
+					}
+					//se verifica que el campo ingresado sea valido
+					if (parqueo->verificarQueElCampoExista(numeroDelCampo)) {
+						hecho = true;
+					} else {
+						cout << "El campo numero " << numeroDelCampo << " no existe" << endl;
+						pausaYContinuar();
+						hecho = false;
+					}
+					
+					if (hecho == false) {
+						cout << "Intente de nuevo" << endl;
+						pausaYContinuar();
+					}
+				} while (hecho == false);
+				cout << "La cantidad de dinero que ha ingresado al parqueo este dia por el campo numero " << numeroDelCampo << " es: " << parqueo->dineroQueHaIngresadoAlParqueoEsteDiaPorUnCampo(numeroDelCampo) << endl;
+				break;
 			
 		}
 		std::system("pause");
