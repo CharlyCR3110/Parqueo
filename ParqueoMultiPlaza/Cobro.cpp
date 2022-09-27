@@ -48,3 +48,26 @@ string Cobro::toString()
 	s << "Total a pagar: " << totalPagar << endl;
 	return s.str();
 }
+
+string Cobro::diferenciaDeHoras() {
+	stringstream s;
+	int horaEntrada = horaDeEntrada->getHora();
+	int minutoEntrada = horaDeEntrada->getMinutos();
+	int segundoEntrada = horaDeEntrada->getSegundos();
+	int horaSalida = horaDeSalida->getHora();
+	int minutoSalida = horaDeSalida->getMinutos();
+	int segundoSalida = horaDeSalida->getSegundos();
+	int horaDiferencia = horaSalida - horaEntrada;
+	int minutoDiferencia = minutoSalida - minutoEntrada;
+	int segundoDiferencia = segundoSalida - segundoEntrada;
+	if (segundoDiferencia < 0) {
+		segundoDiferencia += 60;
+		minutoDiferencia--;
+	}
+	if (minutoDiferencia < 0) {
+		minutoDiferencia += 60;
+		horaDiferencia--;
+	}
+	s << horaDiferencia << ":" << minutoDiferencia << ":" << segundoDiferencia;
+	return s.str();
+}

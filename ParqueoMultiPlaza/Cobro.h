@@ -20,4 +20,5 @@ public:
 	void setTotalPagar(double);
 	//metodos
 	string toString();
+	string diferenciaDeHoras();
 };
