@@ -134,28 +134,8 @@ int main() {
 				pausaYContinuar();
 				//se crea el objeto hora de entrada
 				horaDeEntrada = new Hora(hora, minutos, segundos);
-				//datos de la hora de salida
-				do {
-					cout << "Digite la hora de salida" << endl;
-					cout << "Hora: ";
-					cin >> hora;
-					cout << "Minutos: ";
-					cin >> minutos;
-					cout << "Segundos: ";
-					cin >> segundos;
-					//se verifica que la hora ingresada sea valida
-					if (!validarHora(hora, minutos, segundos)) {
-						cout << "La hora ingresada no es valida" << endl;
-						pausaYContinuar();
-					}
-				} while (validarHora(hora, minutos, segundos) == false);
-				//se muestra la hora en formato HH:MM:SS
-				cout << "Hora de salida: " << hora << ":" << minutos << ":" << segundos << endl;
-				pausaYContinuar();
-				//se crea el objeto hora de salida
-				horaDeSalida = new Hora(hora, minutos, segundos);
 				//se crea el objeto cobro
-				cobro = new Cobro(horaDeEntrada, horaDeSalida);
+				cobro = new Cobro(horaDeEntrada);
 				//se crea el objeto vehiculo
 				vehiculo = new Vehiculo(marca, placa, tonelaje, color, chofer, cobro);
 
