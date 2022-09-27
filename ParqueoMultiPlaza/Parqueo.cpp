@@ -187,3 +187,21 @@ Vehiculo* Parqueo::buscarVehiculo(string placa)
     }
     return NULL;
 }
+
+string Parqueo::retirarUnVehiculoDelParqueo(int posicion, Hora* horaDeSalida) {
+    stringstream s;
+    double totalPagar = 0;
+    //para poder retirar un vehiculo es campo(posicion) debe de estar ocupado
+    //se debe de realizara el debido calculo de la tarifa
+    //al retirar el vehiculo el estadoCampo debe de pasar a L
+    if (campos[posicion]->getEstadoCampo() == 'O') {
+        campos[posicion]->getVehiculo()->actualizarHoraDeSalida(horaDeSalida);
+        totalPagar = campos[posicion]->getVehiculo()->calcularTotalAPagar();
+        camposLibres++;
+        camposOcupados--;
+        campos[posicion]->retirarVehiculo();
+    } else {
+        s << "No hay ningun vehiculo en ese campo" << endl;
+    }
+        return s.str();
+}
