@@ -330,6 +330,10 @@ int main() {
 				} while (hecho == false);
 				cout << parqueo->mostrarInformacionDeLosVehiculosQueHanEstadoEnUnDeterminadoCampo(numeroDelCampo);
 				break;
+				// 17 - Mostar la información de todos (que estén o no) los vehículos del parqueo. 
+			case 17:
+				cout << parqueo->mostrarInformacionDeTodosLosVehiculosQueEstanOHanEstadoEnElParqueo();
+				break;
 		}
 		std::system("pause");
 	} while (opcionMenu != 19);
