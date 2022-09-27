@@ -140,7 +140,7 @@ string Parqueo::mostrarCamposOcupados() {
     return s.str();
 }
 
-string Parqueo::mostrarCamposDisponibles() {
+string Parqueo::mostrarCamposLibres() {
     stringstream s;
     for (int i = 0; i < cantidadCampos; i++) {
         if (campos[i]->getEstadoCampo() == 'L') {
