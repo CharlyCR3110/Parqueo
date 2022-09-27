@@ -245,6 +245,10 @@ int main() {
 			case 6:
 				cout << parqueo->mostrarCamposLibres();
 				break;
+			//7 - Saber la cantidad de vehículos que existen en el parqueo. 
+			case 7:
+				cout << "La cantidad de vehiculos en el parqueo es: " << parqueo->getCantidadDeVehiculosEnElParqueo() << endl;
+				break;
 		}
 		std::system("pause");
 	} while (opcionMenu != 19);
