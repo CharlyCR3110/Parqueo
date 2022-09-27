@@ -89,7 +89,7 @@ int main() {
 				//se pide el nombre del chofer
 				cout << "Ingrese el nombre del chofer: ";
 				cin >> nombre;
-				//pausa para que el usuario pueda leer lo que se le esta pidiendo
+
 				pausaYContinuar();
 				//se crea el objeto chofer
 				chofer = new Chofer(cedula, nombre);
@@ -107,9 +107,8 @@ int main() {
 				//se pide el color del vehiculo
 				cout << "Ingrese el color del vehiculo: ";
 				cin >> color;
-				//pausa para que el usuario pueda leer lo que se le esta pidiendo
+
 				pausaYContinuar();
-				//datos del cobro del vehiculo
 				//datos de la hora de entrada
 				cout << "A continuacion ingrese los datos para posteriormente realizar el cobro" << endl << endl;
 				cout << "Se utiliza el formato de 24 horas" << endl;
@@ -153,6 +152,7 @@ int main() {
 					}
 					//en el if () se verifica y se ingresa el vehiculo en el campo
 					if (parqueo->ingresarUnVehiculoAlParqueo(numeroDelCampo, vehiculo)) {
+						pausaYContinuar();
 						//se crea un ticket de entrada
 						//opcion con una clase ticket de entrada
 						// ticketDeEntrada = new TicketDeEntrada(vehiculo, numeroDelCampo);
@@ -176,7 +176,72 @@ int main() {
 					}
 				} while (hecho == false);
 				break;
-
+			// 5 - Cancelar la estancia en el lugar. Realizar el debido cobro del alquiler. 
+			case 5:
+				//esto es por si se hace por numero de placa y no por numero de campo
+				// //se busca el vehiculo en el parqueo
+				// vehiculo = parqueo->buscarVehiculo(placa);
+				// //si el vehiculo no existe
+				// if (vehiculo == NULL) {
+				// 	cout << "El vehiculo no existe" << endl;
+				// 	pausaYContinuar();
+				// 	break;
+				// }
+				//si el vehiculo existe
+				//se pide la hora de salida
+				//se pide el campo donde esta  ubicado el vehiculo
+				do {
+					cout << "Ingrese el numero del campo donde se encuentra el vehiculo: ";
+					cin >> numeroDelCampo;
+					//por si alguien ingresa un caracter no valido
+					if (!cin.good()) {
+						cin.clear();
+						cin.ignore(numeric_limits<int>::max(), '\n');
+					}
+					//se verifica que el campo ingresado sea valido
+					if (parqueo->verificarQueElCampoExista(numeroDelCampo)) {
+						if (parqueo->verificarQueEsteOcupado(numeroDelCampo)){
+							hecho = true;
+						} else {
+							cout << "No hay ningun vehiculo en el campo numero " << numeroDelCampo << endl;
+							pausaYContinuar();
+							hecho = false;
+						}
+					} else {
+						cout << "El campo numero " << numeroDelCampo << " no existe" << endl;
+						pausaYContinuar();
+						hecho = false;
+					}
+					
+					if (hecho == false) {
+						cout << "Intente de nuevo" << endl;
+						pausaYContinuar();
+					}
+				} while (hecho == false);
+			
+				do {
+					cout << "Digite la hora de salida" << endl;
+					cout << "Hora: ";
+					cin >> hora;
+					cout << "Minutos: ";
+					cin >> minutos;
+					cout << "Segundos: ";
+					cin >> segundos;
+					//se verifica que la hora ingresada sea valida
+					if (!validarHora(hora, minutos, segundos)) {
+						cout << "La hora ingresada no es valida" << endl;
+						pausaYContinuar();
+					}
+				} while (validarHora(hora, minutos, segundos) == false);
+				//se muestra la hora en formato HH:MM:SS
+				cout << "Hora de salida: " << hora << ":" << minutos << ":" << segundos << endl;
+				pausaYContinuar();
+				//se crea el objeto hora de salida
+				horaDeSalida = new Hora(hora, minutos, segundos);
+				//se muestra el cobro
+				cout << parqueo->retirarUnVehiculoDelParqueo(numeroDelCampo, horaDeSalida);
+				pausaYContinuar();
+				break;
 		}
 		std::system("pause");
 	} while (opcionMenu != 19);
