@@ -98,7 +98,8 @@ bool InfoDelCampo::ingresarVehiculo(Vehiculo* vehiculo)
     return false;
 }
 
-double InfoDelCampo::calcularElDineroGeneradoPorELCampo() {
+double InfoDelCampo::calcularElDineroGeneradoPorELCampo()
+{
     double dinero = 0;
     for (int i = 0; i < this->numeroDeCarrosRegistrados; i++) {
         dinero += this->registroDeVehiculos[i]->getCobro()->getTotalPagar();
@@ -113,10 +114,22 @@ double InfoDelCampo::calcularElDineroGeneradoPorELCampo() {
  * 
  * @return Un objeto stringstream.
  */
-string InfoDelCampo::mostrarRegistroDeVehiculos() {
+string InfoDelCampo::mostrarRegistroDeVehiculos()
+{
     stringstream s;
     for (int i = 0; i < this->numeroDeCarrosRegistrados; i++) {
         s << "Carro numero: " << i << endl << this->registroDeVehiculos[i]->toString() << endl;
     }
     return s.str();
+}
+
+Vehiculo* InfoDelCampo::getVehiculo()
+{
+    //devuelve el vehiculo que esta en el campo
+    if (this->numeroDeCarrosRegistrados > 0) {
+        if (this->estadoCampo == 'O') {
+            return this->registroDeVehiculos[this->numeroDeCarrosRegistrados - 1];
+        }
+    }
+    return NULL;
 }

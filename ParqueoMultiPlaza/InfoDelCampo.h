@@ -17,6 +17,7 @@ public:
     char getEstadoCampo();
     double getDineroGeneradoPorELCampo();
     Vehiculo** getRegistroDeVehiculos();
+    Vehiculo* getVehiculo();
     //setters
     //no se puede cambiar el numero maximo de vehiculos
     // void setNumeroMaximoDeVehiculos(int);
