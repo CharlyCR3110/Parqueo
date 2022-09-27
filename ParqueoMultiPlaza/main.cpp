@@ -257,6 +257,10 @@ int main() {
 			case 9:
 				cout << "La cantidad de campos ocupados en el parqueo es: " << parqueo->getCamposOcupados() << endl;
 				break;
+				// 10 - Saber la cantidad de campos en mantenimiento en el parqueo. 
+			case 10:
+				cout << "La cantidad de campos en mantenimiento en el parqueo es: " << parqueo->getCamposEnMantenimiento() << endl;
+				break;
 		}
 		std::system("pause");
 	} while (opcionMenu != 19);
