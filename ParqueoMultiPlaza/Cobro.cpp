@@ -44,8 +44,14 @@ string Cobro::toString()
 {
 	stringstream s;
 	s << "Hora de entrada: " << horaDeEntrada->toString() << endl;
-	s << "Hora de salida: " << horaDeSalida->toString() << endl;
-	s << "Total a pagar: " << totalPagar << endl;
+	if (horaDeSalida != NULL) {
+		s << "Hora de salida: " << horaDeSalida->toString() << endl;
+		s << "Total a pagar: " << totalPagar << endl;
+
+	} else {
+		s << "Hora de salida: " << "No ha salido" << endl;\
+		s << "Total a pagar: " << "No ha salido" << endl;
+	}
 	return s.str();
 }
 
