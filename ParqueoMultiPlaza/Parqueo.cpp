@@ -188,20 +188,36 @@ Vehiculo* Parqueo::buscarVehiculo(string placa)
     return NULL;
 }
 
-string Parqueo::retirarUnVehiculoDelParqueo(int posicion, Hora* horaDeSalida) {
+string Parqueo::retirarUnVehiculoDelParqueo(int posicion, Hora* horaDeSalida) 
+{
     stringstream s;
-    double totalPagar = 0;
-    //para poder retirar un vehiculo es campo(posicion) debe de estar ocupado
-    //se debe de realizara el debido calculo de la tarifa
-    //al retirar el vehiculo el estadoCampo debe de pasar a L
     if (campos[posicion]->getEstadoCampo() == 'O') {
         campos[posicion]->getVehiculo()->actualizarHoraDeSalida(horaDeSalida);
-        totalPagar = campos[posicion]->getVehiculo()->calcularTotalAPagar();
         camposLibres++;
         camposOcupados--;
+        s << this->ticketDeSalida(posicion);
         campos[posicion]->retirarVehiculo();
     } else {
         s << "No hay ningun vehiculo en ese campo" << endl;
     }
-        return s.str();
+    return s.str();
+}
+
+string Parqueo::ticketDeSalida(int posicion)
+{
+    stringstream s;
+    double totalPagar = campos[posicion]->getVehiculo()->calcularTotalAPagar();
+    s << "Ticket de Salida: " << endl;
+    s << "Campo: " << posicion << endl;
+    s << "Datos del vehiculo: " << endl;
+    s << "Marca: " << campos[posicion]->getVehiculo()->getMarca() << endl;
+    s << "Placa: " << campos[posicion]->getVehiculo()->getPlaca() << endl;
+    s << "Datos del chofer: " << endl;
+    s << campos[posicion]->getVehiculo()->getChofer()->toString() << endl;
+    //hora de entrada y hora de salida
+    s << "Hora de entrada: " << campos[posicion]->getVehiculo()->getCobro()->getHoraDeEntrada()->toString() << endl;
+    s << "Hora de salida: " << campos[posicion]->getVehiculo()->getCobro()->getHoraDeSalida()->toString() << endl;
+    s << "El vehiculo estuvo: " << campos[posicion]->getVehiculo()->getCobro()->diferenciaDeHoras() << endl;
+    s << "Total a pagar: " << totalPagar << endl;
+    return s.str();
 }
