@@ -270,3 +270,28 @@ double Parqueo::dineroQueHaIngresadoAlParqueoEsteDiaPorUnCampo(int posicion)
 {
     return campos[posicion]->calcularElDineroGeneradoPorELCampo();
 }
+
+double Parqueo::tonelajeDeLosVehiculosQueHacenMasUsoDelParqueo()
+{
+    //buscar el tonelaje que mas repite
+    double tonelajeMasRepetido = 0;
+    int cantidadDeVecesQueSeRepite = 0;
+    for (int i = 0; i < cantidadCampos; i++) {
+        if (campos[i]->getEstadoCampo() == 'O') {
+            int tonelajeActual = campos[i]->getVehiculo()->getTonelaje();
+            int cantidadDeVecesQueSeRepiteElTonelajeActual = 0;
+            for (int j = 0; j < cantidadCampos; j++) {
+                if (campos[j]->getEstadoCampo() == 'O') {
+                    if (campos[j]->getVehiculo()->getTonelaje() == tonelajeActual) {
+                        cantidadDeVecesQueSeRepiteElTonelajeActual++;
+                    }
+                }
+            }
+            if (cantidadDeVecesQueSeRepiteElTonelajeActual > cantidadDeVecesQueSeRepite) {
+                tonelajeMasRepetido = tonelajeActual;
+                cantidadDeVecesQueSeRepite = cantidadDeVecesQueSeRepiteElTonelajeActual;
+            }
+        }
+    }
+    return tonelajeMasRepetido;
+}
