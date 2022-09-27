@@ -295,3 +295,8 @@ double Parqueo::tonelajeDeLosVehiculosQueHacenMasUsoDelParqueo()
     }
     return tonelajeMasRepetido;
 }
+
+double Parqueo::porcentajeDeOcupacionDelParqueo()
+{
+    return (camposOcupados * 100) / cantidadCampos;
+}

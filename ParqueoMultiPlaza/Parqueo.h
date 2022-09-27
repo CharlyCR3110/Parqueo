@@ -49,4 +49,5 @@ public:
     double dineroQueHaIngresadoAlParqueoEsteDia();
     double dineroQueHaIngresadoAlParqueoEsteDiaPorUnCampo(int posicion);
     double tonelajeDeLosVehiculosQueHacenMasUsoDelParqueo();
+    double porcentajeDeOcupacionDelParqueo();
 };
