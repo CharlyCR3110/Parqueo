@@ -265,3 +265,8 @@ double Parqueo::dineroQueHaIngresadoAlParqueoEsteDia()
     }
     return total;
 }
+
+double Parqueo::dineroQueHaIngresadoAlParqueoEsteDiaPorUnCampo(int posicion)
+{
+    return campos[posicion]->calcularElDineroGeneradoPorELCampo();
+}

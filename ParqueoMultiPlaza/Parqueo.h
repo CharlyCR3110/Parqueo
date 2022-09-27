@@ -47,4 +47,5 @@ public:
     int getCantidadDeVehiculosEnElParqueo();
     int cantidadDeVehiculosQueHanIngresadoEnElDia();
     double dineroQueHaIngresadoAlParqueoEsteDia();
+    double dineroQueHaIngresadoAlParqueoEsteDiaPorUnCampo(int posicion);
 };
