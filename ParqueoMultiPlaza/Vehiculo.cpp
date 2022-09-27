@@ -116,3 +116,10 @@ void Vehiculo::actualizarHoraDeSalida(Hora* horaDeSalida)
 {
 	cobro->setHoraDeSalida(horaDeSalida);
 }
+
+string Vehiculo::mostrarCobro()
+{
+	stringstream ss;
+	ss << "Cobro: " << cobro->toString() << endl;
+	return ss.str();
+}

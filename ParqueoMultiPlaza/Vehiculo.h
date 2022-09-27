@@ -31,4 +31,5 @@ public:
 	string toString();
 	double calcularTotalAPagar();
 	void actualizarHoraDeSalida(Hora*);
+	string mostrarCobro();
 };
