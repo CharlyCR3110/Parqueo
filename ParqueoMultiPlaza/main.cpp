@@ -265,6 +265,11 @@ int main() {
 			case 11:
 				cout << "La cantidad de vehiculos que han ingresado en el dia es: " << parqueo->cantidadDeVehiculosQueHanIngresadoEnElDia() << endl;
 				break;
+				// 12 - Saber la cantidad de dinero que ha ingresado al parqueo este día. 
+			case 12:
+				cout << "La cantidad de dinero que ha ingresado al parqueo este dia es: " << parqueo->dineroQueHaIngresadoAlParqueoEsteDia() << endl;
+				break;
+				// 13 - Saber la cantidad de vehículos que han salido en el día.
 			
 		}
 		std::system("pause");
