@@ -42,4 +42,5 @@ public:
     Vehiculo* buscarVehiculo(string placa);
     string retirarUnVehiculoDelParqueo(int posicion, Hora* horaDeSalida);
     string ticketDeSalida(int posicion);
+    bool verificarQueEsteOcupado(int posicion);
 };
