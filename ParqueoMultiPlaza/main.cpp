@@ -253,6 +253,10 @@ int main() {
 			case 8:
 				cout << "La cantidad de campos libres en el parqueo es: " << parqueo->getCamposLibres() << endl;
 				break;
+				// 9 - Saber la cantidad de campos ocupados en el parqueo. 
+			case 9:
+				cout << "La cantidad de campos ocupados en el parqueo es: " << parqueo->getCamposOcupados() << endl;
+				break;
 		}
 		std::system("pause");
 	} while (opcionMenu != 19);
