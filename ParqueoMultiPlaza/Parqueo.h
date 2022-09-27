@@ -50,4 +50,5 @@ public:
     double dineroQueHaIngresadoAlParqueoEsteDiaPorUnCampo(int posicion);
     double tonelajeDeLosVehiculosQueHacenMasUsoDelParqueo();
     double porcentajeDeOcupacionDelParqueo();
+    string mostrarInformacionDeLosVehiculosQueHanEstadoEnUnDeterminadoCampo(int posicion);
 };

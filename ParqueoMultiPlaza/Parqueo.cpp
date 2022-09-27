@@ -278,7 +278,7 @@ double Parqueo::tonelajeDeLosVehiculosQueHacenMasUsoDelParqueo()
     int cantidadDeVecesQueSeRepite = 0;
     for (int i = 0; i < cantidadCampos; i++) {
         if (campos[i]->getEstadoCampo() == 'O') {
-            int tonelajeActual = campos[i]->getVehiculo()->getTonelaje();
+            double tonelajeActual = campos[i]->getVehiculo()->getTonelaje();
             int cantidadDeVecesQueSeRepiteElTonelajeActual = 0;
             for (int j = 0; j < cantidadCampos; j++) {
                 if (campos[j]->getEstadoCampo() == 'O') {
@@ -299,4 +299,12 @@ double Parqueo::tonelajeDeLosVehiculosQueHacenMasUsoDelParqueo()
 double Parqueo::porcentajeDeOcupacionDelParqueo()
 {
     return (camposOcupados * 100) / cantidadCampos;
+}
+
+string Parqueo::mostrarInformacionDeLosVehiculosQueHanEstadoEnUnDeterminadoCampo(int posicion)
+{
+    stringstream s;
+    s << "Registro de vehiculos del campo numero " << posicion << endl;
+    s << campos[posicion]->mostrarRegistroDeVehiculos();
+    return s.str();
 }
