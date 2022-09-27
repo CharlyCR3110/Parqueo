@@ -273,7 +273,7 @@ int main() {
 			case 13:
 				//se pide el campo donde esta  ubicado el vehiculo
 				do {
-					cout << "Ingrese el numero del campo donde se encuentra el vehiculo: ";
+					cout << "Ingrese el numero del campo: ";
 					cin >> numeroDelCampo;
 					//por si alguien ingresa un caracter no valido
 					if (!cin.good()) {
@@ -296,7 +296,14 @@ int main() {
 				} while (hecho == false);
 				cout << "La cantidad de dinero que ha ingresado al parqueo este dia por el campo numero " << numeroDelCampo << " es: " << parqueo->dineroQueHaIngresadoAlParqueoEsteDiaPorUnCampo(numeroDelCampo) << endl;
 				break;
-			
+				// 14 - Saber el tonelaje de los vehículos que hacen más uso del parqueo. 
+			case 14:
+				cout << "El tonelaje de los vehiculos que hacen mas uso del parqueo es: " << parqueo->tonelajeDeLosVehiculosQueHacenMasUsoDelParqueo() << endl;
+				break;
+			// 15 - Saber el porcentaje de ocupación que tiene el parqueo. 
+			case 15:
+				cout << "El porcentaje de ocupacion que tiene el parqueo es: " << parqueo->porcentajeDeOcupacionDelParqueo() << "%" << endl;
+				break;
 		}
 		std::system("pause");
 	} while (opcionMenu != 19);
