@@ -44,7 +44,7 @@ int main() {
 		std::system("cls");
 		//se muestran los campos libres (unicamente los libres, no los ocupados, porque los ocupados no se pueden poner en mantenimiento)
 		cout << "Campos elegibles: " << endl;
-		cout << parqueo->mostrarCamposDisponibles();
+		cout << parqueo->mostrarCamposLibres();
 		cout << "Ingrese el numero del campo que desear poner en mantenimiento: ";
 		cin >> numeroDelCampo;
 		cout << "Numero del campo " << numeroDelCampo << endl;
@@ -55,7 +55,7 @@ int main() {
 
 	std::system("cls");
 
-	cout << parqueo->mostrarCamposDisponibles();
+	cout << parqueo->mostrarCamposLibres();
 
 	do {
 		cout << menu();
@@ -82,7 +82,7 @@ int main() {
 			// 4 - Ingresar un vehículo al parqueo. Solicitar posición o lugar. 
 			case 4:
 				//datos del chofer
-				cout << "A continuacion se le solictaran los datos del chofer" << endl;
+				cout << "Datps del chofer: " << endl;
 				//se pide la cedula del chofer
 				cout << "Ingrese la cedula del chofer: ";
 				cin >> cedula;
@@ -94,7 +94,7 @@ int main() {
 				//se crea el objeto chofer
 				chofer = new Chofer(cedula, nombre);
 				//datos del vehiculo
-				cout << "A continuacion se le solictaran los datos del vehiculo" << endl;
+				cout << "Datos del vehiculo" << endl;
 				//se pide la marca del vehiculo
 				cout << "Ingrese la marca del vehiculo: ";
 				cin >> marca;
@@ -110,9 +110,9 @@ int main() {
 
 				pausaYContinuar();
 				//datos de la hora de entrada
-				cout << "A continuacion ingrese los datos para posteriormente realizar el cobro" << endl << endl;
+				cout << "Hora de entrada: " << endl << endl;
 				cout << "Se utiliza el formato de 24 horas" << endl;
-				cout << "Ejemplo: 16:30:00" << endl;
+				cout << "Ejemplo: 16:30:23" << endl;
 				pausaYContinuar();
 				do {
 					cout << "Digite la hora de entrada" << endl;
@@ -141,7 +141,7 @@ int main() {
 				//se ingresa el vehiculo en el campo
 				do {
 					//mostrar los campos disponibles
-					cout << parqueo->mostrarCamposDisponibles();
+					cout << parqueo->mostrarCamposLibres();
 					//se pide el numero del campo donde se desea ingresar el vehiculo
 					cout << "Ingrese el numero del campo donde desea ingresar el vehiculo: ";
 					cin >> numeroDelCampo;
@@ -240,7 +240,10 @@ int main() {
 				horaDeSalida = new Hora(hora, minutos, segundos);
 				//se muestra el cobro
 				cout << parqueo->retirarUnVehiculoDelParqueo(numeroDelCampo, horaDeSalida);
-				pausaYContinuar();
+				break;
+			// 6 - Ver solo los campos que están LIBRES. (solo lugar y estado)
+			case 6:
+				cout << parqueo->mostrarCamposLibres();
 				break;
 		}
 		std::system("pause");
