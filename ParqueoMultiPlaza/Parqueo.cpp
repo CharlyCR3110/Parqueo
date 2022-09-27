@@ -221,6 +221,17 @@ string Parqueo::ticketDeSalida(int posicion)
     s << "Total a pagar: " << totalPagar << endl;
     return s.str();
 }
+
+bool Parqueo::verificarQueElCampoExista(int posicion)
+{
+    if (posicion < cantidadCampos && posicion >= 0) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
 //verifica que el campo actualmente este ocupado
 bool Parqueo::verificarQueEsteOcupado(int posicion)
 {
