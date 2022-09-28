@@ -160,6 +160,13 @@ string Parqueo::mostrarCamposEnMantenimiento() {
     return s.str();
 }
 
+/**
+ * Comprueba si la posición es válida, luego comprueba si el vehículo puede insertarse en la posición.
+ * Si puede, disminuye los espacios libres y aumenta los espacios ocupados.
+ * 
+ * @param posicion Posición del campo en el que se quiere insertar el vehículo.
+ * @param vehiculo Vehículo que se quiere insertar.
+ */
 bool Parqueo::ingresarUnVehiculoAlParqueo(int posicion, Vehiculo* vehiculo)
 {
     //validar que la posicion exista
@@ -176,6 +183,11 @@ bool Parqueo::ingresarUnVehiculoAlParqueo(int posicion, Vehiculo* vehiculo)
     }
 }
 
+/**
+ * Devuelve un puntero a un objeto vehiculo si el vehiculo es encontrado en el parqueo, de lo contrario 
+ * devuelve NULL
+ * @param placa la placa del vehiculo a buscar
+ */
 Vehiculo* Parqueo::buscarVehiculo(string placa)
 {
     for (int i = 0; i < cantidadCampos; i++) {
@@ -271,6 +283,10 @@ double Parqueo::dineroQueHaIngresadoAlParqueoEsteDiaPorUnCampo(int posicion)
     return campos[posicion]->calcularElDineroGeneradoPorELCampo();
 }
 
+/**
+ * Encuentra el tonelaje más común de los vehículos que están actualmente estacionados en el aparcamiento
+ * @return el tonelaje más común
+ */
 double Parqueo::tonelajeDeLosVehiculosQueHacenMasUsoDelParqueo()
 {
     //buscar el tonelaje que mas repite
@@ -301,6 +317,10 @@ double Parqueo::porcentajeDeOcupacionDelParqueo()
     return (camposOcupados * 100) / cantidadCampos;
 }
 
+/**
+ * Devuelve un string con la información de todos los vehículos que han estado en un campo determinado
+ * @param posicion Posición del campo
+ */
 string Parqueo::mostrarInformacionDeLosVehiculosQueHanEstadoEnUnDeterminadoCampo(int posicion)
 {
     stringstream s;
@@ -309,6 +329,9 @@ string Parqueo::mostrarInformacionDeLosVehiculosQueHanEstadoEnUnDeterminadoCampo
     return s.str();
 }
 
+/**
+ * Devuelve un string con la información de todos los vehículos que han estado en el aparcamiento
+ */
 string Parqueo::mostrarInformacionDeTodosLosVehiculosQueEstanOHanEstadoEnElParqueo() 
 {
     stringstream s;

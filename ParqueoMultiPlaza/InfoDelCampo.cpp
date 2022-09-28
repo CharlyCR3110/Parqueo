@@ -62,6 +62,11 @@ void InfoDelCampo::setRegistroDeVehiculos(Vehiculo** registroDeVehiculos)
     this->registroDeVehiculos = registroDeVehiculos;
 }
 
+/**
+ * Devuelve un string con el estado del campo, la matrícula del coche si está ocupado, un mensaje
+ * si está en mantenimiento o un mensaje si no hay vehículos registrados.
+ * 
+ */
 string InfoDelCampo::toString() {
     stringstream s;
     s << "Estado del campo: " << this->estadoCampo << endl;
@@ -75,6 +80,11 @@ string InfoDelCampo::toString() {
     return s.str();
 }
 
+/**
+ * Metodo que devuelve un string con la informacion sobre la clase InfoDelCampo
+ * 
+ * @return A string
+ */
 string InfoDelCampo::toStringCompleto() //tiene mas informacion
 {
     stringstream s;
@@ -89,6 +99,13 @@ string InfoDelCampo::toStringCompleto() //tiene mas informacion
     return s.str();
 }
 
+/**
+ * Toma un puntero a un vehículo y lo añade al array de vehículos
+ * 
+ * @param vehiculo es un puntero de un vehiculo
+ * 
+ * @return true si se pudo añadir el vehiculo, false si no se pudo
+ */
 bool InfoDelCampo::ingresarVehiculo(Vehiculo* vehiculo)
 {
     if (estadoCampo == 'L' && this->numeroDeCarrosRegistrados < this->numeroMaximoDeVehiculos) {
