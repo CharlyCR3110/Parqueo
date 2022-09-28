@@ -347,5 +347,7 @@ int main() {
 		}
 		std::system("pause");
 	} while (opcionMenu != 19);
+	
+	delete parqueo;
 	return 0;
 }
