@@ -334,6 +334,11 @@ int main() {
 			case 17:
 				cout << parqueo->mostrarInformacionDeTodosLosVehiculosQueEstanOHanEstadoEnElParqueo();
 				break;
+			// 18 - Mostrar los vehículos que se encuentran en el rango de tonelaje de 1.0 a 1.5 
+			case 18:
+				cout << parqueo->mostrarVehiculosQueSeEncuentranEnElRangoDeTonelajeDe1A15();
+				break;
+			//to-do: hacer commits
 		}
 		std::system("pause");
 	} while (opcionMenu != 19);
