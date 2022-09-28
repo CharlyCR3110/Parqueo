@@ -67,6 +67,8 @@ string InfoDelCampo::toString() {
     s << "Estado del campo: " << this->estadoCampo << endl;
     if (estadoCampo == 'O') {
         s << "Placa del vehiculo: " << this->registroDeVehiculos[numeroDeCarrosRegistrados - 1]->getPlaca() << endl;
+    } else if (estadoCampo == 'M') {
+        s << "El campo esta en mantenimiento" << endl;
     } else {
         s << "No hay ningun vehiculo registrado actualmente" << endl;
     }
