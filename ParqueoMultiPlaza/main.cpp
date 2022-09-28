@@ -338,7 +338,12 @@ int main() {
 			case 18:
 				cout << parqueo->mostrarVehiculosQueSeEncuentranEnElRangoDeTonelajeDe1A15();
 				break;
-			//to-do: hacer commits
+			case 19:
+				cout << "Gracias por usar el programa" << endl;
+				break;
+			default:
+				cout << "Opcion no valida" << endl;
+				break;
 		}
 		std::system("pause");
 	} while (opcionMenu != 19);
