@@ -52,4 +52,5 @@ public:
     double porcentajeDeOcupacionDelParqueo();
     string mostrarInformacionDeLosVehiculosQueHanEstadoEnUnDeterminadoCampo(int posicion);
     string mostrarInformacionDeTodosLosVehiculosQueEstanOHanEstadoEnElParqueo();
+    string mostrarVehiculosQueSeEncuentranEnElRangoDeTonelajeDe1A15();
 };

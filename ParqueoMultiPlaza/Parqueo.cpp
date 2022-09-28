@@ -327,3 +327,18 @@ string Parqueo::mostrarInformacionDeTodosLosVehiculosQueEstanOHanEstadoEnElParqu
     }
     return s.str();
 }
+
+string Parqueo::mostrarVehiculosQueSeEncuentranEnElRangoDeTonelajeDe1A15()
+{
+    stringstream s;
+    s << "Vehiculos que se encuentran en el rango de tonelaje de 1 a 1.5" << endl;
+    s << "------------------------------------------------------------" << endl;
+    for (int i = 0; i < cantidadCampos; i++) {
+        if (campos[i]->getEstadoCampo() == 'O') {
+            if (campos[i]->getVehiculo()->getTonelaje() >= 1 && campos[i]->getVehiculo()->getTonelaje() <= 1.5) {
+                s << campos[i]->getVehiculo()->toString() << endl;
+            }
+        }
+    }
+    return s.str();
+}
