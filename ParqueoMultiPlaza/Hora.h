@@ -21,4 +21,5 @@ public:
 	void setSegundos(int);
 	//metodos
 	string toString();
+	bool esMenorQue(Hora*);
 };

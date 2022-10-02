@@ -33,3 +33,19 @@ string Hora::toString() {
 	ss << horas << ":" << minutos << ":" << segundos << endl;
 	return ss.str();
 }
+
+bool Hora::esMenorQue(Hora* hora)
+{
+	if (this->horas < hora->getHora()) {
+		return true;
+	} else if (this->horas == hora->getHora()) {
+		if (this->minutos < hora->getMinutos()) {
+			return true;
+		} else if (this->minutos == hora->getMinutos()) {
+			if (this->segundos < hora->getSegundos()) {
+				return true;
+			}
+		}
+	}
+	return false;
+}
