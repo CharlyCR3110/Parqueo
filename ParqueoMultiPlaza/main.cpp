@@ -189,7 +189,10 @@ int main() {
 				//si el vehiculo existe
 				//se pide la hora de salida
 				//se pide el campo donde esta  ubicado el vehiculo
+				
 				do {
+					//se muestra los campos ocupados
+					cout << parqueo->mostrarCamposOcupados();
 					cout << "Ingrese el numero del campo donde se encuentra el vehiculo: ";
 					cin >> numeroDelCampo;
 					//por si alguien ingresa un caracter no valido
