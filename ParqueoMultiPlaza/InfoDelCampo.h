@@ -32,4 +32,5 @@ public:
     double calcularElDineroGeneradoPorELCampo();
     string mostrarRegistroDeVehiculos();
     bool retirarVehiculo(); //realmente no se retira, simplemente se el campo se pone libre
+    bool laHoraDeEntradaEsMenorQue(Hora* hora);
 };

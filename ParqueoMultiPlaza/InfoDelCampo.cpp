@@ -162,3 +162,17 @@ bool InfoDelCampo::retirarVehiculo() {
     }
     return false;
 }
+
+/**
+ * Devuelve true si el ultimo carro registrado en el parqueadero tiene una hora de entrada menor a la
+ * hora pasada como parametro
+ */
+bool InfoDelCampo::laHoraDeEntradaEsMenorQue(Hora* hora)
+{
+    if (this->numeroDeCarrosRegistrados > 0) {
+        if (this->estadoCampo == 'O') {
+            return this->registroDeVehiculos[this->numeroDeCarrosRegistrados - 1]->getCobro()->getHoraDeEntrada()->esMenorQue(hora);
+        }
+    }
+    return false;
+}
