@@ -55,7 +55,8 @@ string Cobro::toString()
 	return s.str();
 }
 
-string Cobro::diferenciaDeHoras() {
+string Cobro::diferenciaDeHoras()
+{
 	stringstream s;
 	int horaEntrada = horaDeEntrada->getHora();
 	int minutoEntrada = horaDeEntrada->getMinutos();

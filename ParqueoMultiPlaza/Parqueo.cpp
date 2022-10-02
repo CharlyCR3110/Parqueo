@@ -68,7 +68,8 @@ InfoDelCampo** Parqueo::getCampos()
     return campos;
 }
 
-void Parqueo::setEstadoDeUnCampo(int posicion, char estado) {
+void Parqueo::setEstadoDeUnCampo(int posicion, char estado)
+{
     campos[posicion]->setEstadoCampo(estado);
 
     if (estado == 'L') {
@@ -122,7 +123,8 @@ string Parqueo::toString()
     return s.str();
 }
 
-string Parqueo::mostrarTodosLosCamposDelParqueo() {
+string Parqueo::mostrarTodosLosCamposDelParqueo()
+{
     stringstream s;
     for (int i = 0; i < cantidadCampos; i++) {
         s << "Campo numero: " << i << endl << campos[i]->toString() << endl;
@@ -130,7 +132,8 @@ string Parqueo::mostrarTodosLosCamposDelParqueo() {
     return s.str();
 }
 
-string Parqueo::mostrarCamposOcupados() {
+string Parqueo::mostrarCamposOcupados()
+{
     stringstream s;
     for (int i = 0; i < cantidadCampos; i++) {
         if (campos[i]->getEstadoCampo() == 'O') {
@@ -140,7 +143,8 @@ string Parqueo::mostrarCamposOcupados() {
     return s.str();
 }
 
-string Parqueo::mostrarCamposLibres() {
+string Parqueo::mostrarCamposLibres() 
+{
     stringstream s;
     for (int i = 0; i < cantidadCampos; i++) {
         // Para que un campo este libre este no puede haber superado su capacidad maxima diaria
@@ -151,7 +155,8 @@ string Parqueo::mostrarCamposLibres() {
     return s.str();
 }
 
-string Parqueo::mostrarCamposEnMantenimiento() {
+string Parqueo::mostrarCamposEnMantenimiento()
+{
     stringstream s;
     for (int i = 0; i < cantidadCampos; i++) {
         if (campos[i]->getEstadoCampo() == 'M') {

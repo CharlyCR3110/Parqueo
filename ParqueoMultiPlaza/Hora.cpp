@@ -1,30 +1,36 @@
 #include "Hora.h"
 
-Hora::Hora(int horas, int minutos, int segundos) {
+Hora::Hora(int horas, int minutos, int segundos) 
+{
 	this->horas = horas;
 	this->minutos = minutos;
 	this->segundos = segundos;
 }
-Hora::~Hora() {
-}
+Hora::~Hora() {}
 //getters
-int Hora::getHora() {
+int Hora::getHora() 
+{
 	return horas;
 }
-int Hora::getMinutos() {
+int Hora::getMinutos() 
+{
 	return minutos;
 }
-int Hora::getSegundos() {
+int Hora::getSegundos() 
+{
 	return segundos;
 }
 //setters
-void Hora::setHoras(int horas) {
+void Hora::setHoras(int horas) 
+{
 	this->horas = horas;
 }
-void Hora::setMinutos(int minuto) {
+void Hora::setMinutos(int minuto) 
+{
 	this->minutos = minuto;
 }
-void Hora::setSegundos(int segundo) {
+void Hora::setSegundos(int segundo)
+{
 	this->segundos = segundo;
 }
 //tostring

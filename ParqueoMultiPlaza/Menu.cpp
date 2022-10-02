@@ -1,5 +1,6 @@
 #include "Menu.h"
-string menu() {
+string menu()
+{
     system("cls");
     stringstream ss;
     ss << endl;

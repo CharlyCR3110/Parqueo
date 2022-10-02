@@ -1,6 +1,7 @@
 #include "PausaYContinuar.h"
 
-void pausaYContinuar() {
+void pausaYContinuar()
+{
 	std::system("pause");
 	std::system("cls");
 }
