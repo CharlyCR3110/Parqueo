@@ -5,7 +5,6 @@
 using namespace std;
 
 int main() {
-	cout << "sexo";
 	//datos del cobro
 	int hora, minutos, segundos;
 	Hora* horaDeEntrada;
@@ -82,7 +81,7 @@ int main() {
 			// 4 - Ingresar un vehículo al parqueo. Solicitar posición o lugar. 
 			case 4:
 				//datos del chofer
-				cout << "Datps del chofer: " << endl;
+				cout << "-------Datos del chofer-------" << endl;
 				//se pide la cedula del chofer
 				cout << "Ingrese la cedula del chofer: ";
 				cin >> cedula;
@@ -94,7 +93,7 @@ int main() {
 				//se crea el objeto chofer
 				chofer = new Chofer(cedula, nombre);
 				//datos del vehiculo
-				cout << "Datos del vehiculo" << endl;
+				cout << "------Datos del vehiculo------" << endl;
 				//se pide la marca del vehiculo
 				cout << "Ingrese la marca del vehiculo: ";
 				cin >> marca;
@@ -110,7 +109,7 @@ int main() {
 
 				pausaYContinuar();
 				//datos de la hora de entrada
-				cout << "Hora de entrada: " << endl << endl;
+				cout << "--------Hora de entrada-------" << endl << endl;
 				cout << "Se utiliza el formato de 24 horas" << endl;
 				cout << "Ejemplo: 16:30:23" << endl;
 				pausaYContinuar();
@@ -143,7 +142,7 @@ int main() {
 					//mostrar los campos disponibles
 					cout << parqueo->mostrarCamposLibres();
 					//se pide el numero del campo donde se desea ingresar el vehiculo
-					cout << "Ingrese el numero del campo donde desea ingresar el vehiculo: ";
+					cout << endl << "Ingrese el numero del campo donde desea ingresar el vehiculo: ";
 					cin >> numeroDelCampo;
 					//por si alguien ingresa un caracter no valido
 					if (!cin.good()) {
