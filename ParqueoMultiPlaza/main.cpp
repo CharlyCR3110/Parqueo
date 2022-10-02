@@ -152,20 +152,7 @@ int main() {
 					//en el if () se verifica y se ingresa el vehiculo en el campo
 					if (parqueo->ingresarUnVehiculoAlParqueo(numeroDelCampo, vehiculo)) {
 						pausaYContinuar();
-						//se crea un ticket de entrada
-						//opcion con una clase ticket de entrada
-						// ticketDeEntrada = new TicketDeEntrada(vehiculo, numeroDelCampo);
-						//se muestra el ticket de entrada
-						// cout << ticketDeEntrada->toString();
-						//opcion simulando un ticket a punta de couts
-						cout << "Ticket de entrada" << endl;
-						cout << "Campo: " << numeroDelCampo << endl;
-						cout << "Datos del vehiculo: " << endl;
-						cout << "Marca: " << vehiculo->getMarca() << endl;
-						cout << "Placa: " << vehiculo->getPlaca() << endl;
-						cout << "Datos del chofer: " << endl;
-						cout << vehiculo->getChofer()->toString();
-						cout << "Hora de entrada: " << hora << ":" << minutos << ":" << segundos << endl;
+						cout << parqueo->ticketDeEntrada(numeroDelCampo);
 						hecho = true;
 					} else {
 						cout << "No se puede ingresar un vehiculo en ese campo" << endl;
