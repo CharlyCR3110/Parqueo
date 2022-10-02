@@ -231,7 +231,18 @@ int main() {
 						cout << "La hora ingresada no es valida" << endl;
 						pausaYContinuar();
 					}
-				} while (validarHora(hora, minutos, segundos) == false);
+					// verificar que la hora sea mayor a la hora de entrada
+					if (validarHora(hora, minutos, segundos)) {
+						//se verifica que la hora sea mayor a la hora de entrada
+						if (parqueo->verificarQueLaHoraDeEntradaSeaMenorQueLaDeSalida(numeroDelCampo, new Hora(hora, minutos, segundos))) {
+							hecho = true;
+						} else {
+							cout << "La hora de salida debe ser mayor a la hora de entrada" << endl;
+							pausaYContinuar();
+							hecho = false;
+						}
+					}
+				} while (hecho == false);
 				//se muestra la hora en formato HH:MM:SS
 				cout << "Hora de salida: " << hora << ":" << minutos << ":" << segundos << endl;
 				pausaYContinuar();
