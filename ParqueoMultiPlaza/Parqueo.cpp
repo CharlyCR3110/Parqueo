@@ -143,7 +143,8 @@ string Parqueo::mostrarCamposOcupados() {
 string Parqueo::mostrarCamposLibres() {
     stringstream s;
     for (int i = 0; i < cantidadCampos; i++) {
-        if (campos[i]->getEstadoCampo() == 'L') {
+        // Para que un campo este libre este no puede haber superado su capacidad maxima diaria
+        if (campos[i]->getEstadoCampo() == 'L' && campos[i]->getNumeroDeCarrosRegistrados() < campos[i]->getNumeroMaximoDeVehiculos()) {
             s << "Campo numero: " << i << endl << campos[i]->toString() << endl;
         }
     }
