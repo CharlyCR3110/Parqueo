@@ -99,7 +99,7 @@ int Vehiculo::horasQueElVehiculoEstuvoEnElParqueo()
 	}
 	return horas;
 }
-
+//esto tal vez deba de ir en la clase parqueo
 double Vehiculo::calcularTotalAPagar()
 {
 	double montoTotal;
