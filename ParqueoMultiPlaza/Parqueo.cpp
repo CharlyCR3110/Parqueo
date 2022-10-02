@@ -219,18 +219,19 @@ string Parqueo::ticketDeSalida(int posicion)
 {
     stringstream s;
     double totalPagar = campos[posicion]->getVehiculo()->calcularTotalAPagar();
-    s << "-------Ticket de Salida-------" << endl;
+    s << "-------------------------------" << endl;
+    s << "        Ticket de Salida" << endl;
+    s << "-------------------------------" << endl;
     s << "Campo: " << posicion << endl;
-    s << "Datos del vehiculo: " << endl;
-    s << "Marca: " << campos[posicion]->getVehiculo()->getMarca() << endl;
     s << "Placa: " << campos[posicion]->getVehiculo()->getPlaca() << endl;
-    s << "Datos del chofer: " << endl;
-    s << campos[posicion]->getVehiculo()->getChofer()->toString() << endl;
-    //hora de entrada y hora de salida
+    s << "-------------------------------" << endl;
     s << "Hora de entrada: " << campos[posicion]->getVehiculo()->getCobro()->getHoraDeEntrada()->toString() << endl;
     s << "Hora de salida: " << campos[posicion]->getVehiculo()->getCobro()->getHoraDeSalida()->toString() << endl;
-    s << "El vehiculo estuvo: " << campos[posicion]->getVehiculo()->getCobro()->diferenciaDeHoras() << endl;
-    s << "Total a pagar: " << totalPagar << endl;
+    s << "Total de horas: " << campos[posicion]->getVehiculo()->getCobro()->diferenciaDeHoras() << endl;
+    s << "-------------------------------" << endl;
+    s << "Pagado: " << totalPagar << endl;
+    s << "-------------------------------" << endl;
+    s << "     Gracias por su visita" << endl;
     return s.str();
 }
 
@@ -239,13 +240,13 @@ string Parqueo::ticketDeEntrada(int posicion)
     stringstream s;
 
     s << "-------------------------------" << endl;
-    s << "       Ticket de Ingreso       " << endl;
+    s << "       Ticket de Ingreso" << endl;
     s << "-------------------------------" << endl;
     s << "Hora de entrada: " << campos[posicion]->getVehiculo()->getCobro()->getHoraDeEntrada()->toString() << endl;
     s << "Campo: " << posicion << endl;
     s << "Placa: " << campos[posicion]->getVehiculo()->getPlaca() << endl;
     s << "-------------------------------" << endl;
-    s << "          Bienvenido          " << endl;
+    s << "           Bienvenido" << endl;
 
     return s.str();
 }
