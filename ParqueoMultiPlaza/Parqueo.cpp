@@ -219,7 +219,7 @@ string Parqueo::ticketDeSalida(int posicion)
 {
     stringstream s;
     double totalPagar = campos[posicion]->getVehiculo()->calcularTotalAPagar();
-    s << "Ticket de Salida: " << endl;
+    s << "-------Ticket de Salida-------" << endl;
     s << "Campo: " << posicion << endl;
     s << "Datos del vehiculo: " << endl;
     s << "Marca: " << campos[posicion]->getVehiculo()->getMarca() << endl;
@@ -231,6 +231,22 @@ string Parqueo::ticketDeSalida(int posicion)
     s << "Hora de salida: " << campos[posicion]->getVehiculo()->getCobro()->getHoraDeSalida()->toString() << endl;
     s << "El vehiculo estuvo: " << campos[posicion]->getVehiculo()->getCobro()->diferenciaDeHoras() << endl;
     s << "Total a pagar: " << totalPagar << endl;
+    return s.str();
+}
+
+string Parqueo::ticketDeEntrada(int posicion)
+{
+    stringstream s;
+
+    s << "-------------------------------" << endl;
+    s << "       Ticket de Ingreso       " << endl;
+    s << "-------------------------------" << endl;
+    s << "Hora de entrada: " << campos[posicion]->getVehiculo()->getCobro()->getHoraDeEntrada()->toString() << endl;
+    s << "Campo: " << posicion << endl;
+    s << "Placa: " << campos[posicion]->getVehiculo()->getPlaca() << endl;
+    s << "-------------------------------" << endl;
+    s << "          Bienvenido          " << endl;
+
     return s.str();
 }
 
@@ -370,4 +386,3 @@ bool Parqueo::verificarQueLaHoraDeEntradaSeaMenorQueLaDeSalida(int posicion, Hor
 {
     return campos[posicion]->laHoraDeEntradaEsMenorQue(horaDeSalida);
 }
-

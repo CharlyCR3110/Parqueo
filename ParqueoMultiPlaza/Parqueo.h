@@ -42,6 +42,7 @@ public:
     Vehiculo* buscarVehiculo(string placa);
     string retirarUnVehiculoDelParqueo(int posicion, Hora* horaDeSalida);
     string ticketDeSalida(int posicion);
+    string ticketDeEntrada(int posicion);
     bool verificarQueElCampoExista(int posicion);
     bool verificarQueEsteOcupado(int posicion);
     int getCantidadDeVehiculosEnElParqueo();
