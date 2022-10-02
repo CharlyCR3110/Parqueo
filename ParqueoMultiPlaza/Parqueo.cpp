@@ -365,3 +365,9 @@ string Parqueo::mostrarVehiculosQueSeEncuentranEnElRangoDeTonelajeDe1A15()
     }
     return s.str();
 }
+
+bool Parqueo::verificarQueLaHoraDeEntradaSeaMenorQueLaDeSalida(int posicion, Hora* horaDeSalida)
+{
+    return campos[posicion]->laHoraDeEntradaEsMenorQue(horaDeSalida);
+}
+

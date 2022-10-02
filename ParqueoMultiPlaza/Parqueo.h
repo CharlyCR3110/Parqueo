@@ -53,4 +53,5 @@ public:
     string mostrarInformacionDeLosVehiculosQueHanEstadoEnUnDeterminadoCampo(int posicion);
     string mostrarInformacionDeTodosLosVehiculosQueEstanOHanEstadoEnElParqueo();
     string mostrarVehiculosQueSeEncuentranEnElRangoDeTonelajeDe1A15();
+    bool verificarQueLaHoraDeEntradaSeaMenorQueLaDeSalida(int posicion, Hora* horaDeSalida);
 };
