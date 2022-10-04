@@ -66,19 +66,15 @@ int main() {
        }
 		std::system("cls");
 		switch (opcionMenu) {
-			//1 - Ver TODOS los campos del parqueo, (solo lugar, estado y placa)
 			case 1:
 				cout << parqueo->mostrarTodosLosCamposDelParqueo();
 				break;
-			//2 - Ver solo los campos que están OCUPADOS. (solo lugar, estado y placa)
 			case 2:
 				cout << parqueo->mostrarCamposOcupados();
 				break;
-			//3 - Ver solo los campos que están en MANTENIMIENTO. (solo lugar y estado)
 			case 3:
 				cout << parqueo->mostrarCamposEnMantenimiento();
-				break;
-			// 4 - Ingresar un vehículo al parqueo. Solicitar posición o lugar. 
+				break; 
 			case 4:
 				//datos del chofer
 				cout << "-------Datos del chofer-------" << endl;
@@ -162,21 +158,7 @@ int main() {
 					}
 				} while (hecho == false);
 				break;
-			// 5 - Cancelar la estancia en el lugar. Realizar el debido cobro del alquiler. 
 			case 5:
-				//esto es por si se hace por numero de placa y no por numero de campo
-				// //se busca el vehiculo en el parqueo
-				// vehiculo = parqueo->buscarVehiculo(placa);
-				// //si el vehiculo no existe
-				// if (vehiculo == NULL) {
-				// 	cout << "El vehiculo no existe" << endl;
-				// 	pausaYContinuar();
-				// 	break;
-				// }
-				//si el vehiculo existe
-				//se pide la hora de salida
-				//se pide el campo donde esta  ubicado el vehiculo
-				
 				do {
 					//se muestra los campos ocupados
 					cout << parqueo->mostrarCamposOcupados();
@@ -241,35 +223,27 @@ int main() {
 				//se muestra el cobro
 				cout << parqueo->retirarUnVehiculoDelParqueo(numeroDelCampo, horaDeSalida);
 				break;
-			// 6 - Ver solo los campos que están LIBRES. (solo lugar y estado)
 			case 6:
 				cout << parqueo->mostrarCamposLibres();
 				break;
-			//7 - Saber la cantidad de vehículos que existen en el parqueo. 
 			case 7:
 				cout << "La cantidad de vehiculos en el parqueo es: " << parqueo->getCantidadDeVehiculosEnElParqueo() << endl;
 				break;
-			// 8 - Saber la cantidad de campos libres en el parqueo.
 			case 8:
 				cout << "La cantidad de campos libres en el parqueo es: " << parqueo->getCamposLibres() << endl;
 				break;
-				// 9 - Saber la cantidad de campos ocupados en el parqueo. 
 			case 9:
 				cout << "La cantidad de campos ocupados en el parqueo es: " << parqueo->getCamposOcupados() << endl;
 				break;
-				// 10 - Saber la cantidad de campos en mantenimiento en el parqueo. 
 			case 10:
 				cout << "La cantidad de campos en mantenimiento en el parqueo es: " << parqueo->getCamposEnMantenimiento() << endl;
 				break;
-				// 11 - Saber la cantidad de vehículos que han ingresado en el día.
 			case 11:
 				cout << "La cantidad de vehiculos que han ingresado en el dia es: " << parqueo->cantidadDeVehiculosQueHanIngresadoEnElDia() << endl;
-				break;
-				// 12 - Saber la cantidad de dinero que ha ingresado al parqueo este día. 
+				break; 
 			case 12:
 				cout << "La cantidad de dinero que ha ingresado al parqueo este dia es: " << parqueo->dineroQueHaIngresadoAlParqueoEsteDia() << endl;
 				break;
-			// 13 - Saber la cantidad de dinero que ha ingresado, por un solo campo. 
 			case 13:
 				//se pide el campo donde esta  ubicado el vehiculo
 				do {
@@ -295,16 +269,13 @@ int main() {
 					}
 				} while (hecho == false);
 				cout << "La cantidad de dinero que ha ingresado al parqueo este dia por el campo numero " << numeroDelCampo << " es: " << parqueo->dineroQueHaIngresadoAlParqueoEsteDiaPorUnCampo(numeroDelCampo) << endl;
-				break;
-				// 14 - Saber el tonelaje de los vehículos que hacen más uso del parqueo. 
+				break; 
 			case 14:
 				cout << "El tonelaje de los vehiculos que hacen mas uso del parqueo es: " << parqueo->tonelajeDeLosVehiculosQueHacenMasUsoDelParqueo() << endl;
-				break;
-			// 15 - Saber el porcentaje de ocupación que tiene el parqueo. 
+				break; 
 			case 15:
 				cout << "El porcentaje de ocupacion que tiene el parqueo es: " << parqueo->porcentajeDeOcupacionDelParqueo() << "%" << endl;
 				break;
-			// 16 - Mostrar la información de los vehículos que han estado en un determinado campo.
 			case 16:
 				do {
 					cout << "Ingrese el numero del campo: ";
@@ -329,12 +300,10 @@ int main() {
 					}
 				} while (hecho == false);
 				cout << parqueo->mostrarInformacionDeLosVehiculosQueHanEstadoEnUnDeterminadoCampo(numeroDelCampo);
-				break;
-				// 17 - Mostar la información de todos (que estén o no) los vehículos del parqueo. 
+				break; 
 			case 17:
 				cout << parqueo->mostrarInformacionDeTodosLosVehiculosQueEstanOHanEstadoEnElParqueo();
-				break;
-			// 18 - Mostrar los vehículos que se encuentran en el rango de tonelaje de 1.0 a 1.5 
+				break; 
 			case 18:
 				cout << parqueo->mostrarVehiculosQueSeEncuentranEnElRangoDeTonelajeDe1A15();
 				break;
