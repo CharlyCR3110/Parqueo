@@ -102,7 +102,6 @@ string InfoDelCampo::toStringCompleto() //tiene mas informacion
 /**
  * Toma un puntero a un vehículo y lo añade al array de vehículos
  * 
- * @param vehiculo es un puntero de un vehiculo
  * 
  * @return true si se pudo añadir el vehiculo, false si no se pudo
  */
