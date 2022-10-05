@@ -189,7 +189,7 @@ int main() {
 						pausaYContinuar();
 					}
 				} while (hecho == false);
-			
+				pausaYContinuar();
 				do {
 					cout << "Digite la hora de salida" << endl;
 					cout << "Hora: ";
