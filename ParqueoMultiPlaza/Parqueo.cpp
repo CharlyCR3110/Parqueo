@@ -366,7 +366,7 @@ string Parqueo::mostrarInformacionDeTodosLosVehiculosQueEstanOHanEstadoEnElParqu
             s << campos[i]->mostrarRegistroDeVehiculos();
         }
         else {
-            s << "No se han registrado vehiculos en este campo" << endl;
+            s << endl << "No se han registrado vehiculos en este campo" << endl;
         }
         //podria llamar a la funcion "mostrarInformacionDeLosVehiculosQueHanEstadoEnUnDeterminadoCampo"
         //  y pasarle i como parametro pero no se si es buena practica
