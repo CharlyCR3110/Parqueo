@@ -143,7 +143,7 @@ string InfoDelCampo::mostrarRegistroDeVehiculos()
 
 Vehiculo* InfoDelCampo::getVehiculo()
 {
-    //devuelve el vehiculo que esta en el campo
+    //devuelve el vehiculo que actualmente está en el campo
     if (this->numeroDeCarrosRegistrados > 0) {
         if (this->estadoCampo == 'O') {
             return this->registroDeVehiculos[this->numeroDeCarrosRegistrados - 1];
@@ -152,6 +152,16 @@ Vehiculo* InfoDelCampo::getVehiculo()
     return NULL;
 }
 
+
+/**
+ * Como numeroDeCarrosRegistrados es un REGISTRO de carros, no se debe de borrar el vehiculo
+ * que se encuentra en el campo. Por la manera en la que esta construido el programa, 
+ * simplemente se debe de cambiar el estado del campo a libre.
+ * 
+ * La otra forma que se me ocurre es crear otro array para llevar el registro, pero eso seria complicar
+ * el programa sin necesidad.
+ * 
+ */
 bool InfoDelCampo::retirarVehiculo() {
     if (this->numeroDeCarrosRegistrados > 0) {
         if (this->estadoCampo == 'O') {
