@@ -167,6 +167,21 @@ string Parqueo::mostrarCamposEnMantenimiento()
 }
 
 /**
+ * 
+ * Comprueba si el campo es apto para el mantenimiento.
+ * 
+ */
+bool Parqueo::verificarCampoElegibleMantenimiento(int posicion)
+{
+    if (campos[posicion]->getEstadoCampo() == 'L') {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+/**
  * Comprueba si la posición es válida, luego comprueba si el vehículo puede insertarse en la posición.
  * Si puede, disminuye los espacios libres y aumenta los espacios ocupados.
  * 

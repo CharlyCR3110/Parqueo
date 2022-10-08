@@ -38,6 +38,7 @@ public:
     string mostrarCamposOcupados();
     string mostrarCamposLibres();
     string mostrarCamposEnMantenimiento();
+    bool verificarCampoElegibleMantenimiento(int posicion);
     bool ingresarUnVehiculoAlParqueo(int posicion, Vehiculo* vehiculo);
     Vehiculo* buscarVehiculo(string placa);
     string retirarUnVehiculoDelParqueo(int posicion, Hora* horaDeSalida);
