@@ -350,6 +350,17 @@ double Parqueo::tonelajeDeLosVehiculosQueHacenMasUsoDelParqueo()
     return tonelajeMasRepetido;
 }
 
+
+/**
+ * Para calcular el porcentaje de ocupación del parqueo
+ * se toma en cuenta la cantidad total de campos, esto incluye los campos
+ * que no se pueden usar por estar en mantenimiento
+ *
+ * 
+ * en el caso de que estos campos no se deban tomar en cuenta, se debe cambiar la operacion
+ * a la siguiente: (camposOcupados * 100) / (cantidadCampos - camposMantenimiento)
+ * 
+ */
 double Parqueo::porcentajeDeOcupacionDelParqueo()
 {
     return (camposOcupados * 100) / cantidadCampos;
