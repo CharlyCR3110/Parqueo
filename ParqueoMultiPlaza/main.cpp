@@ -40,24 +40,37 @@ int main() {
 	//se establecen los campos en mantenimiento`
 	for (int i = 0; i < numeroDeCamposEnManteniemiento; i++) {
 		std::system("cls");
-		//se muestran los campos libres (unicamente los libres, no los ocupados, porque los ocupados no se pueden poner en mantenimiento)
-		cout << "Campos elegibles: " << endl;
-		cout << parqueo->mostrarCamposLibres();
-		cout << "Ingrese el numero del campo que desear poner en mantenimiento: ";
-		cin >> numeroDelCampo;
-		cout << "Numero del campo " << numeroDelCampo << endl;
-		parqueo->setEstadoDeUnCampo(numeroDelCampo, 'M');
+		do {
+			//se muestran los campos libres (unicamente los libres, no los ocupados, 
+			// porque los ocupados no se pueden poner en mantenimiento)
+			cout << "Campos elegibles: " << endl;
+			cout << parqueo->mostrarCamposLibres();
+			cout << "Ingrese el numero del campo que desear poner en mantenimiento: ";
+			cin >> numeroDelCampo;
+			// se verifica que el numero del campo sea valido
+			if (parqueo->verificarQueElCampoExista(numeroDelCampo)) {
+				if (parqueo->verificarCampoElegibleMantenimiento(numeroDelCampo)) {
+					parqueo->setEstadoDeUnCampo(numeroDelCampo, 'M');
+					hecho = true;
+					cout << "El campo numero: " << numeroDelCampo << " se ha puesto en mantenimiento exitosamente" << endl;
+					pausaYContinuar();
+				} else {
+					cout << "El campo no es elegible para poner en mantenimiento" << endl;
+					hecho = false;
+					pausaYContinuar();
+				}
+			} else {
+				cout << "El campo no existe" << endl;
+				hecho = false;
+				pausaYContinuar();
+			}
+		} while (hecho == false);
 	}
-	//to-do
-	//verificar que se haya escogido un campo elegible
-
-	std::system("cls");
-
-	cout << parqueo->mostrarCamposLibres();
 
 	do {
 		cout << menu();
 		cin >> opcionMenu;
+
 		std::system("cls");
 		switch (opcionMenu) {
 			case 1:
