@@ -1,7 +1,6 @@
 #include "Parqueo.h"
 #include "Menu.h"
-#include "ValidadorDeDatos.h"
-#include "PausaYContinuar.h"
+#include "funcionesVarias.h"
 using namespace std;
 
 int main() {
@@ -59,11 +58,6 @@ int main() {
 	do {
 		cout << menu();
 		cin >> opcionMenu;
-		//por si alguien ingresa un caracter no valido
-       if (!cin.good()) {
-           cin.clear();
-           cin.ignore(numeric_limits<int>::max(), '\n');
-       }
 		std::system("cls");
 		switch (opcionMenu) {
 			case 1:
@@ -109,20 +103,32 @@ int main() {
 				cout << "Se utiliza el formato de 24 horas" << endl;
 				cout << "Ejemplo: 16:30:23" << endl;
 				pausaYContinuar();
-				do {
-					cout << "Digite la hora de entrada" << endl;
+				cout << "Digite la hora de entrada" << endl;
+				cout << "Hora: ";
+				cin >> hora;
+				while (hora < 0 || hora > 23) {
+					std::system("cls");
+					cout << "La hora debe estar entre 0 y 23" << endl;
 					cout << "Hora: ";
 					cin >> hora;
+				}
+				cout << "Minutos: ";
+				cin >> minutos;
+				while (minutos < 0 || minutos > 59) {
+					std::system("cls");
+					cout << "Los minutos deben estar entre 0 y 59" << endl;
 					cout << "Minutos: ";
 					cin >> minutos;
+				}
+				cout << "Segundos: ";
+				cin >> segundos;
+				while (segundos < 0 || segundos > 59) {
+					std::system("cls");
+					cout << "Los segundos deben estar entre 0 y 59" << endl;
 					cout << "Segundos: ";
 					cin >> segundos;
-					//se verifica que la hora ingresada sea valida
-					if (!validarHora(hora, minutos, segundos)) {
-						cout << "La hora ingresada no es valida" << endl;
-						pausaYContinuar();
-					}
-				} while (validarHora(hora, minutos, segundos) == false);
+				}
+				pausaYContinuar();
 				//se muestra la hora en formato HH:MM:SS
 				cout << "Hora de entrada: " << hora << ":" << minutos << ":" << segundos << endl;
 				pausaYContinuar();
@@ -164,11 +170,6 @@ int main() {
 					cout << parqueo->mostrarCamposOcupados();
 					cout << "Ingrese el numero del campo donde se encuentra el vehiculo: ";
 					cin >> numeroDelCampo;
-					//por si alguien ingresa un caracter no valido
-					if (!cin.good()) {
-						cin.clear();
-						cin.ignore(numeric_limits<int>::max(), '\n');
-					}
 					//se verifica que el campo ingresado sea valido
 					if (parqueo->verificarQueElCampoExista(numeroDelCampo)) {
 						if (parqueo->verificarQueEsteOcupado(numeroDelCampo)){
@@ -194,27 +195,38 @@ int main() {
 					cout << "Digite la hora de salida" << endl;
 					cout << "Hora: ";
 					cin >> hora;
+					while (hora < 0 || hora > 23) {
+						std::system("cls");
+						cout << "La hora debe estar entre 0 y 23" << endl;
+						cout << "Hora: ";
+						cin >> hora;
+					}
 					cout << "Minutos: ";
 					cin >> minutos;
+					while (minutos < 0 || minutos > 59) {
+						std::system("cls");
+						cout << "Los minutos deben estar entre 0 y 59" << endl;
+						cout << "Minutos: ";
+						cin >> minutos;
+					}
 					cout << "Segundos: ";
 					cin >> segundos;
-					//se verifica que la hora ingresada sea valida
-					if (!validarHora(hora, minutos, segundos)) {
-						cout << "La hora ingresada no es valida" << endl;
-						pausaYContinuar();
+					while (segundos < 0 || segundos > 59) {
+						std::system("cls");
+						cout << "Los segundos deben estar entre 0 y 59" << endl;
+						cout << "Segundos: ";
+						cin >> segundos;
 					}
-					// verificar que la hora sea mayor a la hora de entrada
-					if (validarHora(hora, minutos, segundos)) {
-						//se verifica que la hora sea mayor a la hora de entrada
-						if (parqueo->verificarQueLaHoraDeEntradaSeaMenorQueLaDeSalida(numeroDelCampo, new Hora(hora, minutos, segundos))) {
-							hecho = true;
-						} else {
-							cout << "La hora de salida debe ser mayor a la hora de entrada" << endl;
-							pausaYContinuar();
-							hecho = false;
-						}
+					//se verifica que la hora sea mayor a la hora de entrada
+					if (parqueo->verificarQueLaHoraDeEntradaSeaMenorQueLaDeSalida(numeroDelCampo, new Hora(hora, minutos, segundos))) {
+						hecho = true;
+					} else {
+						cout << "La hora de salida debe ser mayor a la hora de entrada" << endl;
+						pausaYContinuar();
+						hecho = false;
 					}
 				} while (hecho == false);
+				pausaYContinuar();
 				//se muestra la hora en formato HH:MM:SS
 				cout << "Hora de salida: " << hora << ":" << minutos << ":" << segundos << endl;
 				pausaYContinuar();
@@ -249,11 +261,6 @@ int main() {
 				do {
 					cout << "Ingrese el numero del campo: ";
 					cin >> numeroDelCampo;
-					//por si alguien ingresa un caracter no valido
-					if (!cin.good()) {
-						cin.clear();
-						cin.ignore(numeric_limits<int>::max(), '\n');
-					}
 					//se verifica que el campo ingresado sea valido
 					if (parqueo->verificarQueElCampoExista(numeroDelCampo)) {
 						hecho = true;
@@ -268,7 +275,7 @@ int main() {
 						pausaYContinuar();
 					}
 				} while (hecho == false);
-				cout << "La cantidad de dinero que ha ingresado al parqueo este dia por el campo numero " << numeroDelCampo << " es: " << parqueo->dineroQueHaIngresadoAlParqueoEsteDiaPorUnCampo(numeroDelCampo) << endl;
+				cout << "La cantidad de dinero que ha ingresado el parqueo por el campo numero " << numeroDelCampo << " es: " << parqueo->dineroQueHaIngresadoAlParqueoEsteDiaPorUnCampo(numeroDelCampo) << endl;
 				break; 
 			case 14:
 				cout << "El tonelaje de los vehiculos que hacen mas uso del parqueo es: " << parqueo->tonelajeDeLosVehiculosQueHacenMasUsoDelParqueo() << endl;
@@ -280,11 +287,6 @@ int main() {
 				do {
 					cout << "Ingrese el numero del campo: ";
 					cin >> numeroDelCampo;
-					//por si alguien ingresa un caracter no valido
-					if (!cin.good()) {
-						cin.clear();
-						cin.ignore(numeric_limits<int>::max(), '\n');
-					}
 					//se verifica que el campo ingresado sea valido
 					if (parqueo->verificarQueElCampoExista(numeroDelCampo)) {
 						hecho = true;
